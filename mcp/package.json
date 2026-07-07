@@ -1,0 +1,27 @@
+{
+  "name": "gptbrowser-mcp",
+  "version": "1.0.0",
+  "description": "MCP server wrapping the gptbrowser CLI to prompt logged-in chatbot web UIs (ChatGPT, Gemini, Kimi, DeepSeek, Claude, Perplexity, etc.)",
+  "type": "module",
+  "bin": {
+    "gptbrowser-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "@types/node": "^22.10.5"
+  }
+}
