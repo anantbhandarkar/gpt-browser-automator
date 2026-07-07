@@ -24,6 +24,11 @@ enum Site {
     Gemini,
     Kimi,
     DeepSeek,
+    Claude,
+    Perplexity,
+    Copilot,
+    Grok,
+    Zai,
 }
 
 impl Site {
@@ -37,6 +42,16 @@ impl Site {
             Some(Site::Kimi)
         } else if u.contains("deepseek") {
             Some(Site::DeepSeek)
+        } else if u.contains("claude") {
+            Some(Site::Claude)
+        } else if u.contains("perplexity") {
+            Some(Site::Perplexity)
+        } else if u.contains("copilot") {
+            Some(Site::Copilot)
+        } else if u.contains("grok") {
+            Some(Site::Grok)
+        } else if u.contains("z.ai") {
+            Some(Site::Zai)
         } else {
             None
         }
@@ -48,6 +63,11 @@ impl Site {
             Site::Gemini => "gemini",
             Site::Kimi => "kimi",
             Site::DeepSeek => "deepseek",
+            Site::Claude => "claude",
+            Site::Perplexity => "perplexity",
+            Site::Copilot => "copilot",
+            Site::Grok => "grok",
+            Site::Zai => "zai",
         }
     }
 
@@ -60,6 +80,11 @@ impl Site {
             Site::Gemini => "https://gemini.google.com/app",
             Site::Kimi => "https://www.kimi.com/",
             Site::DeepSeek => "https://chat.deepseek.com/",
+            Site::Claude => "https://claude.ai/new",
+            Site::Perplexity => "https://www.perplexity.ai/",
+            Site::Copilot => "https://copilot.microsoft.com/",
+            Site::Grok => "https://grok.com/",
+            Site::Zai => "https://chat.z.ai/",
         }
     }
 
@@ -69,6 +94,11 @@ impl Site {
             Site::Gemini => "!!document.querySelector('.ql-editor')",
             Site::Kimi => "!!document.querySelector('.chat-input-editor')",
             Site::DeepSeek => "!!document.querySelector('#chat-input, textarea')",
+            Site::Claude => "!!document.querySelector('div[data-testid=\"chat-input\"]')",
+            Site::Perplexity => "!!document.querySelector('#ask-input')",
+            Site::Copilot => "!!document.querySelector('textarea')",
+            Site::Grok => "!!document.querySelector('textarea')",
+            Site::Zai => "!!document.querySelector('#chat-input, textarea')",
         }
     }
 
@@ -79,6 +109,11 @@ impl Site {
         matches!(self, Site::Kimi)
     }
 
+    /// Sites whose composer is a real <textarea> (vs a contenteditable editor).
+    fn is_textarea(&self) -> bool {
+        matches!(self, Site::DeepSeek | Site::Zai | Site::Grok | Site::Copilot)
+    }
+
     /// Primary CSS selector for the composer element.
     fn composer_sel(&self) -> &'static str {
         match self {
@@ -86,45 +121,49 @@ impl Site {
             Site::Gemini => ".ql-editor",
             Site::Kimi => ".chat-input-editor",
             Site::DeepSeek => "#chat-input",
+            Site::Claude => "div[data-testid=\"chat-input\"]",
+            Site::Perplexity => "#ask-input",
+            Site::Copilot => "textarea",
+            Site::Grok => "textarea",
+            Site::Zai => "#chat-input",
         }
     }
 
     /// JS IIFE returning {ok, len}. `len` is the whitespace-stripped length of
     /// the composer after injection — the caller checks it actually landed.
     fn inject_js(&self, lit: &str) -> String {
-        match self {
-            // ProseMirror (ChatGPT) / Quill (Gemini): selectAll+delete then insertText.
-            Site::ChatGpt | Site::Gemini => {
-                let sel = self.composer_sel();
-                format!(
-                    "(function(){{var el=document.querySelector('{sel}');\
-                     if(!el)return {{ok:false,err:'composer not found'}};\
-                     el.focus();\
-                     try{{document.execCommand('selectAll',false,null);document.execCommand('delete',false,null);}}catch(e){{}}\
-                     document.execCommand('insertText',false,{lit});\
-                     return {{ok:true,len:(el.innerText||el.textContent||'').replace(/\\s+/g,'').length}};}})()"
-                )
-            }
-            // Kimi (Lexical): execCommand('delete') wipes the selection and makes
-            // insertText no-op. Instead select all contents via a Range, then
-            // insertText — which REPLACES the selection. No execCommand delete.
-            Site::Kimi => format!(
-                "(function(){{var el=document.querySelector('.chat-input-editor');\
+        let sel = self.composer_sel();
+        if self.is_textarea() {
+            // Real <textarea> — React-safe native value setter + input event.
+            return format!(
+                "(function(){{var el=document.querySelector('{sel}')||document.querySelector('textarea');\
+                 if(!el)return {{ok:false,err:'composer not found'}};el.focus();\
+                 var s=Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype,'value').set;\
+                 s.call(el,{lit});el.dispatchEvent(new Event('input',{{bubbles:true}}));\
+                 return {{ok:true,len:(el.value||'').replace(/\\s+/g,'').length}};}})()"
+            );
+        }
+        if matches!(self, Site::Kimi | Site::Perplexity) {
+            // Lexical (Kimi, Perplexity): execCommand('delete') wipes the selection
+            // and makes insertText no-op. Select all contents via a Range, then
+            // insertText REPLACES it — this also overwrites Perplexity's persisted draft.
+            return format!(
+                "(function(){{var el=document.querySelector('{sel}');\
                  if(!el)return {{ok:false,err:'composer not found'}};el.focus();\
                  var r=document.createRange();r.selectNodeContents(el);\
                  var s=getSelection();s.removeAllRanges();s.addRange(r);\
                  document.execCommand('insertText',false,{lit});\
                  return {{ok:true,len:(el.innerText||el.textContent||'').replace(/\\s+/g,'').length}};}})()"
-            ),
-            // DeepSeek: real <textarea> — React-safe native value setter + input event.
-            Site::DeepSeek => format!(
-                "(function(){{var el=document.querySelector('#chat-input')||document.querySelector('textarea');\
-                 if(!el)return {{ok:false,err:'composer not found'}};el.focus();\
-                 var s=Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype,'value').set;\
-                 s.call(el,{lit});el.dispatchEvent(new Event('input',{{bubbles:true}}));\
-                 return {{ok:true,len:(el.value||'').replace(/\\s+/g,'').length}};}})()"
-            ),
+            );
         }
+        // ProseMirror/Quill/tiptap (ChatGPT, Gemini, Claude): selectAll+delete then insertText.
+        format!(
+            "(function(){{var el=document.querySelector('{sel}');\
+             if(!el)return {{ok:false,err:'composer not found'}};el.focus();\
+             try{{document.execCommand('selectAll',false,null);document.execCommand('delete',false,null);}}catch(e){{}}\
+             document.execCommand('insertText',false,{lit});\
+             return {{ok:true,len:(el.innerText||el.textContent||'').replace(/\\s+/g,'').length}};}})()"
+        )
     }
 
     /// Send button selector, or None for sites where we submit via Enter.
@@ -132,18 +171,22 @@ impl Site {
         match self {
             Site::ChatGpt => Some("button[data-testid=\"send-button\"]"),
             Site::Gemini => Some("button[aria-label=\"Send message\"]"),
-            // Kimi's .send-button-container is a div; Enter-dispatch is more reliable.
-            Site::Kimi => None,
-            Site::DeepSeek => None,
+            Site::Claude => Some("button[aria-label=\"Send message\"]"),
+            Site::Perplexity => Some("button[aria-label=\"Submit\"]"),
+            Site::Zai => Some("#send-message-button"),
+            Site::Grok => Some("button[data-testid=\"chat-submit\"]"),
+            // Kimi's div-button + DeepSeek/Copilot: Enter-dispatch is more reliable.
+            Site::Kimi | Site::DeepSeek | Site::Copilot => None,
         }
     }
 
     /// JS IIFE that dispatches a synthetic Enter keydown on the composer to
     /// submit. Reliable for textarea + Lexical where a CDP key press isn't.
     fn enter_submit_js(&self) -> String {
-        let sel = match self {
-            Site::DeepSeek => "document.querySelector('#chat-input')||document.querySelector('textarea')".to_string(),
-            _ => format!("document.querySelector('{}')", self.composer_sel()),
+        let sel = if self.is_textarea() {
+            format!("document.querySelector('{}')||document.querySelector('textarea')", self.composer_sel())
+        } else {
+            format!("document.querySelector('{}')", self.composer_sel())
         };
         format!(
             "(function(){{var el={sel};if(!el)return {{ok:false}};el.focus();\
@@ -159,6 +202,11 @@ impl Site {
             Site::Gemini => r#"(function(){var ss=['.model-response-text','message-content','.markdown'];for(var i=0;i<ss.length;i++){var n=document.querySelectorAll(ss[i]);if(n.length)return (n[n.length-1].innerText||'').trim();}return '';})()"#,
             Site::Kimi => r#"(function(){var ss=['.segment-assistant .markdown','.segment-assistant'];for(var i=0;i<ss.length;i++){var n=document.querySelectorAll(ss[i]);if(n.length)return (n[n.length-1].innerText||'').trim();}return '';})()"#,
             Site::DeepSeek => r#"(function(){var ss=['.ds-markdown','[class*="markdown"]'];for(var i=0;i<ss.length;i++){var n=document.querySelectorAll(ss[i]);if(n.length)return (n[n.length-1].innerText||'').trim();}return '';})()"#,
+            Site::Claude => r#"(function(){var n=document.querySelectorAll('.standard-markdown');if(!n.length){n=document.querySelectorAll('[data-is-streaming]');}if(!n.length)return '';var t=(n[n.length-1].innerText||'').trim();return t.replace(/^Claude responded:\s*/,'').trim();})()"#,
+            Site::Perplexity => r#"(function(){var n=document.querySelectorAll('.prose');if(!n.length)return '';return (n[n.length-1].innerText||'').trim();})()"#,
+            Site::Zai => r#"(function(){var n=document.querySelectorAll('.chat-assistant.markdown-prose');if(!n.length)return '';var t=(n[n.length-1].innerText||'').trim();t=t.replace(/^Thought Process\s*/i,'').trim();if(/^Thinking/i.test(t)||t==='Skip'||t==='')return '';return t;})()"#,
+            Site::Grok => r#"(function(){var ss=['.message-bubble','[class*="markdown"]','.prose'];for(var i=0;i<ss.length;i++){var n=document.querySelectorAll(ss[i]);if(n.length)return (n[n.length-1].innerText||'').trim();}return '';})()"#,
+            Site::Copilot => r#"(function(){var ss=['[data-content="ai-message"]','.ac-textBlock','[class*="message"]'];for(var i=0;i<ss.length;i++){var n=document.querySelectorAll(ss[i]);if(n.length)return (n[n.length-1].innerText||'').trim();}return '';})()"#,
         }
     }
 
@@ -166,6 +214,7 @@ impl Site {
     fn generating_js(&self) -> &'static str {
         match self {
             Site::ChatGpt => "!!document.querySelector('button[data-testid=\"stop-button\"]')",
+            Site::Claude => "!!document.querySelector('button[aria-label*=\"Stop\" i]')",
             _ => "false",
         }
     }
@@ -429,13 +478,19 @@ fn send(c: &Client, tab: &str, site: Site) -> Result<(), String> {
              if(b.disabled||b.getAttribute('aria-disabled')==='true')return {{ok:false,err:'disabled'}};\
              b.click();return {{ok:true}};}})()"
         );
-        let r = c.run_js(tab, &expr)?;
-        if r.get("ok").and_then(|v| v.as_bool()).unwrap_or(false) {
+        // Best-effort: clicking send can navigate the page (Claude /new -> /chat/<id>),
+        // which makes the eval throw a detached/navigation error even though the click
+        // registered. Swallow it — await_response is the real success signal.
+        if let Ok(r) = c.run_js(tab, &expr) {
+            if r.get("ok").and_then(|v| v.as_bool()).unwrap_or(false) {
+                return Ok(());
+            }
+        } else {
             return Ok(());
         }
     }
     // Enter-dispatch submit (Kimi/DeepSeek default, and fallback if a click failed).
-    c.run_js(tab, &site.enter_submit_js())?;
+    let _ = c.run_js(tab, &site.enter_submit_js());
     Ok(())
 }
 
