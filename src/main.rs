@@ -253,6 +253,16 @@ impl Site {
             _ => None,
         }
     }
+
+    /// Whether `--image` mode is supported (only ChatGPT for now).
+    fn supports_image(&self) -> bool {
+        matches!(self, Site::ChatGpt)
+    }
+
+    /// JS IIFE returning the src of the latest generated image, or '' if none yet.
+    fn image_src_js(&self) -> &'static str {
+        r#"(function(){var out='';document.querySelectorAll('[data-message-author-role="assistant"] img, main img').forEach(function(im){var s=im.src||im.currentSrc||'';if(/oaiusercontent|sdmnt|files\.oai|dalle|blob:/i.test(s)&&(im.naturalWidth>150||im.width>150))out=s;});return out;})()"#
+    }
 }
 
 struct Client {
@@ -294,6 +304,29 @@ impl Client {
     fn run_js(&self, tab: &str, expr: &str) -> Result<Value, String> {
         let v = self.post(&format!("/tabs/{tab}/evaluate"), json!({ "expression": expr }))?;
         Ok(v.get("result").cloned().unwrap_or(Value::Null))
+    }
+
+    /// GET returning the raw response body bytes (for binary downloads).
+    fn get_bytes(&self, path: &str) -> Result<Vec<u8>, String> {
+        let url = format!("{}{}", self.base, path);
+        let resp = self
+            .agent
+            .get(&url)
+            .set("Authorization", &format!("Bearer {}", self.token))
+            .call();
+        match resp {
+            Ok(r) => {
+                let mut buf = Vec::new();
+                r.into_reader()
+                    .read_to_end(&mut buf)
+                    .map_err(|e| format!("read bytes: {e}"))?;
+                Ok(buf)
+            }
+            Err(ureq::Error::Status(code, r)) => {
+                Err(format!("HTTP {code}: {}", r.into_string().unwrap_or_default()))
+            }
+            Err(e) => Err(format!("request failed: {e}")),
+        }
     }
 
     fn js_true(&self, tab: &str, expr: &str) -> bool {
@@ -351,6 +384,8 @@ struct Args {
     timeout_s: u64,
     model: Option<String>,
     list_models: bool,
+    image: bool,
+    out: Option<String>,
 }
 
 fn parse_args() -> Result<Args, String> {
@@ -363,6 +398,8 @@ fn parse_args() -> Result<Args, String> {
     let mut timeout_s = DEFAULT_TOTAL_TIMEOUT_S;
     let mut model: Option<String> = None;
     let mut list_models = false;
+    let mut image = false;
+    let mut out: Option<String> = None;
 
     let mut i = 0;
     while i < argv.len() {
@@ -372,6 +409,8 @@ fn parse_args() -> Result<Args, String> {
             "--new-tab" => new_tab = true,
             "--model" => { i += 1; model = Some(argv.get(i).cloned().ok_or("--model needs a value")?); }
             "--list-models" => list_models = true,
+            "--image" => image = true,
+            "--out" => { i += 1; out = Some(argv.get(i).cloned().ok_or("--out needs a value")?); }
             "--url" => { i += 1; url = argv.get(i).cloned().ok_or("--url needs a value")?; }
             "--prompt" => { i += 1; prompt_parts.push(argv.get(i).cloned().ok_or("--prompt needs a value")?); }
             "--poll" => { i += 1; poll_ms = argv.get(i).and_then(|v| v.parse().ok()).ok_or("--poll needs a number")?; }
@@ -396,7 +435,7 @@ fn parse_args() -> Result<Args, String> {
     if prompt.is_empty() && !list_models {
         return Err("no prompt given (pass as args or via stdin)".to_string());
     }
-    Ok(Args { url, prompt, new_tab, poll_ms, stable, timeout_s, model, list_models })
+    Ok(Args { url, prompt, new_tab, poll_ms, stable, timeout_s, model, list_models, image, out })
 }
 
 fn normalize_url(url: &str) -> String {
@@ -449,10 +488,15 @@ fn run() -> Result<Value, String> {
     let c = Client::new(base, token);
     let started = Instant::now();
 
+    if args.image && !site.supports_image() {
+        return Err(format!("--image is only supported on chatgpt (got {})", site.name()));
+    }
+
     let app = site.app_url().to_string(); // always drive the real chat app
     let tab = acquire_tab(&c, site, &app, args.new_tab)?;
     c.focus(&tab);
-    c.post(&format!("/tabs/{tab}/navigate"), json!({ "url": app, "blockImages": true }))?;
+    // Never block images in image mode — we need the generated image to load.
+    c.post(&format!("/tabs/{tab}/navigate"), json!({ "url": app, "blockImages": !args.image }))?;
 
     let composer = wait_until(COMPOSER_TIMEOUT_S, 400, || c.js_true(&tab, site.composer_present_js()));
     if !composer {
@@ -483,8 +527,14 @@ fn run() -> Result<Value, String> {
         switch_model(&c, &tab, site, m)?;
     }
 
-    let lit = serde_json::to_string(&args.prompt).unwrap();
-    let need = (args.prompt.chars().filter(|c| !c.is_whitespace()).count() / 2).max(1);
+    // In image mode, prepend an explicit image-generation instruction.
+    let eff_prompt = if args.image {
+        format!("Create an image based on this description: {}", args.prompt)
+    } else {
+        args.prompt.clone()
+    };
+    let lit = serde_json::to_string(&eff_prompt).unwrap();
+    let need = (eff_prompt.chars().filter(|c| !c.is_whitespace()).count() / 2).max(1);
     // Inject with retry: some editors (Kimi's Lexical) start contenteditable=false
     // and need a real click + a beat before insertText registers. Keep trying
     // until the text actually lands, so we never submit an empty composer.
@@ -519,6 +569,20 @@ fn run() -> Result<Value, String> {
     let baseline_len = as_text(&c.run_js(&tab, site.response_js())?).chars().count();
 
     send(&c, &tab, site)?;
+
+    // Image mode: wait for the generated <img>, then download it.
+    if args.image {
+        let src = await_image(&c, &tab, site, &args)?;
+        let out = resolve_out_path(args.out.as_deref());
+        download_image(&c, &tab, &src, &out)?;
+        return Ok(json!({
+            "model": site.name(),
+            "url": app,
+            "prompt": args.prompt,
+            "image_path": out,
+            "elapsed_ms": started.elapsed().as_millis(),
+        }));
+    }
 
     let answer = await_response(&c, &tab, site, baseline_len, &args)?;
 
@@ -818,6 +882,119 @@ fn as_text(v: &Value) -> String {
     v.as_str().unwrap_or("").to_string()
 }
 
+/// Poll for a generated image after an image-mode prompt. Errors on the site's
+/// "image generation failed" message. Image gen is slow (up to a few minutes).
+fn await_image(c: &Client, tab: &str, site: Site, args: &Args) -> Result<String, String> {
+    let poll = Duration::from_millis(args.poll_ms.max(1500));
+    let deadline = Instant::now() + Duration::from_secs(args.timeout_s.max(240));
+    loop {
+        c.focus(tab);
+        // hard failure from the site itself
+        let failed = c
+            .run_js(tab, "(function(){return /image generation failed/i.test((document.querySelector('main')||{}).innerText||'');})()")
+            .ok()
+            .and_then(|v| v.as_bool())
+            .unwrap_or(false);
+        if failed {
+            return Err(format!("{} reported 'image generation failed' (often a free-tier daily image cap — try later or on a paid plan)", site.name()));
+        }
+        let src = as_text(&c.run_js(tab, site.image_src_js())?);
+        if !src.is_empty() {
+            return Ok(src);
+        }
+        if Instant::now() >= deadline {
+            return Err(format!("{}: no image appeared within {}s", site.name(), args.timeout_s.max(240)));
+        }
+        std::thread::sleep(poll);
+    }
+}
+
+/// Default output path when --out isn't given.
+fn resolve_out_path(out: Option<&str>) -> String {
+    if let Some(o) = out {
+        return o.to_string();
+    }
+    let secs = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .map(|d| d.as_secs())
+        .unwrap_or(0);
+    format!("gptbrowser-image-{secs}.png")
+}
+
+/// Percent-encode everything except RFC-3986 unreserved chars (for /download?url=).
+fn percent_encode(s: &str) -> String {
+    let mut out = String::with_capacity(s.len() * 3);
+    for b in s.bytes() {
+        match b {
+            b'A'..=b'Z' | b'a'..=b'z' | b'0'..=b'9' | b'-' | b'_' | b'.' | b'~' => out.push(b as char),
+            _ => out.push_str(&format!("%{b:02X}")),
+        }
+    }
+    out
+}
+
+/// Download the generated image to `out`. http(s) URLs go through PinchTab's
+/// server-side /download (uses the browser session, bypasses CORS); blob: URLs
+/// are read in-page and base64-decoded here.
+fn download_image(c: &Client, tab: &str, src: &str, out: &str) -> Result<(), String> {
+    if src.starts_with("blob:") {
+        // Read the blob in-page and return a data URL (awaitPromise resolves it).
+        let expr = format!(
+            "fetch({}).then(function(r){{return r.blob();}}).then(function(b){{return new Promise(function(res){{var fr=new FileReader();fr.onloadend=function(){{res(fr.result);}};fr.readAsDataURL(b);}});}})",
+            serde_json::to_string(src).unwrap()
+        );
+        let v = c.post(
+            &format!("/tabs/{tab}/evaluate"),
+            json!({ "expression": expr, "awaitPromise": true }),
+        )?;
+        let data_url = v.get("result").and_then(|x| x.as_str()).unwrap_or("");
+        let b64 = data_url.splitn(2, ",").nth(1).ok_or("blob: could not read image data")?;
+        let bytes = base64_decode(b64)?;
+        std::fs::write(out, &bytes).map_err(|e| format!("write {out}: {e}"))?;
+        Ok(())
+    } else {
+        // Fetch raw bytes through PinchTab (uses the browser session, bypasses CORS)
+        // and write them ourselves — server-side output=file rejects absolute paths.
+        let url = percent_encode(src);
+        let bytes = c.get_bytes(&format!("/download?url={url}&raw=true"))?;
+        if bytes.len() < 100 {
+            return Err(format!("downloaded image was empty/too small ({} bytes)", bytes.len()));
+        }
+        std::fs::write(out, &bytes).map_err(|e| format!("write {out}: {e}"))?;
+        Ok(())
+    }
+}
+
+/// Minimal standard-base64 decoder (no deps).
+fn base64_decode(s: &str) -> Result<Vec<u8>, String> {
+    fn val(c: u8) -> Option<u8> {
+        match c {
+            b'A'..=b'Z' => Some(c - b'A'),
+            b'a'..=b'z' => Some(c - b'a' + 26),
+            b'0'..=b'9' => Some(c - b'0' + 52),
+            b'+' => Some(62),
+            b'/' => Some(63),
+            _ => None,
+        }
+    }
+    let mut out = Vec::new();
+    let mut buf = 0u32;
+    let mut bits = 0u32;
+    for &c in s.as_bytes() {
+        if c == b'=' || c == b'\n' || c == b'\r' {
+            continue;
+        }
+        let v = val(c).ok_or("invalid base64")? as u32;
+        buf = (buf << 6) | v;
+        bits += 6;
+        if bits >= 8 {
+            bits -= 8;
+            out.push((buf >> bits) as u8);
+        }
+    }
+    Ok(out)
+}
+
 fn wait_until<F: Fn() -> bool>(timeout_s: u64, step_ms: u64, f: F) -> bool {
     let deadline = Instant::now() + Duration::from_secs(timeout_s);
     while Instant::now() < deadline {
@@ -845,6 +1022,8 @@ SUPPORTED URLS:
 FLAGS:
   --model <name>    switch model before sending (fuzzy match; see --list-models)
   --list-models     print the site's selectable models and exit
+  --image           generate an image (chatgpt only) and download it; prints the file path
+  --out <path>      output file for --image (default gptbrowser-image-<epoch>.png)
   --json            emit structured JSON instead of bare text
   --new-tab         force a new tab instead of reusing an open one
   --timeout <sec>   overall generation budget (default 240)
@@ -862,6 +1041,8 @@ fn main() {
             let json_mode = std::env::args().any(|a| a == "--json");
             if json_mode {
                 println!("{}", serde_json::to_string_pretty(&out).unwrap());
+            } else if let Some(p) = out.get("image_path").and_then(|v| v.as_str()) {
+                println!("{p}");
             } else {
                 println!("{}", out.get("response").and_then(|v| v.as_str()).unwrap_or(""));
             }
