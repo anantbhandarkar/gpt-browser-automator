@@ -218,6 +218,41 @@ impl Site {
             _ => "false",
         }
     }
+
+    /// Selector for the control that opens the model picker. None where there is
+    /// no picker (DeepSeek uses toggles) or the site isn't switch-capable here.
+    fn model_picker_open_sel(&self) -> Option<&'static str> {
+        match self {
+            Site::ChatGpt => Some("[data-testid=\"model-switcher-dropdown-button\"]"),
+            Site::Gemini => Some("button[aria-label*=\"Open mode picker\"]"),
+            Site::Kimi => Some(".chat-editor-action .current-model"),
+            Site::Claude => Some("[data-testid=\"model-selector-dropdown\"]"),
+            Site::Perplexity => Some("button[aria-label=\"Model\"]"),
+            Site::Zai => Some("button[aria-label=\"Select a model\"]"),
+            Site::DeepSeek | Site::Copilot | Site::Grok => None,
+        }
+    }
+
+    /// Comma-separated selector(s) matching model options in the open picker.
+    fn model_option_sel(&self) -> &'static str {
+        match self {
+            Site::ChatGpt => "[role=menuitem],[role=menuitemradio]",
+            Site::Gemini => "[role=menuitem]",
+            Site::Kimi => ".model-item",
+            Site::Claude => "[role=menuitemradio]",
+            Site::Perplexity => "[role=menuitem]",
+            Site::Zai => "[role=option],[role=menuitem],li",
+            _ => "",
+        }
+    }
+
+    /// Some sites hide extra models behind an expander (Claude's "More models").
+    fn model_expand_text(&self) -> Option<&'static str> {
+        match self {
+            Site::Claude => Some("More models"),
+            _ => None,
+        }
+    }
 }
 
 struct Client {
@@ -314,6 +349,8 @@ struct Args {
     poll_ms: u64,
     stable: u64,
     timeout_s: u64,
+    model: Option<String>,
+    list_models: bool,
 }
 
 fn parse_args() -> Result<Args, String> {
@@ -324,6 +361,8 @@ fn parse_args() -> Result<Args, String> {
     let mut poll_ms = DEFAULT_POLL_MS;
     let mut stable = DEFAULT_STABLE_POLLS;
     let mut timeout_s = DEFAULT_TOTAL_TIMEOUT_S;
+    let mut model: Option<String> = None;
+    let mut list_models = false;
 
     let mut i = 0;
     while i < argv.len() {
@@ -331,6 +370,8 @@ fn parse_args() -> Result<Args, String> {
         match a.as_str() {
             "--json" => {} // handled in main() via env scan
             "--new-tab" => new_tab = true,
+            "--model" => { i += 1; model = Some(argv.get(i).cloned().ok_or("--model needs a value")?); }
+            "--list-models" => list_models = true,
             "--url" => { i += 1; url = argv.get(i).cloned().ok_or("--url needs a value")?; }
             "--prompt" => { i += 1; prompt_parts.push(argv.get(i).cloned().ok_or("--prompt needs a value")?); }
             "--poll" => { i += 1; poll_ms = argv.get(i).and_then(|v| v.parse().ok()).ok_or("--poll needs a number")?; }
@@ -352,10 +393,10 @@ fn parse_args() -> Result<Args, String> {
         std::io::stdin().read_to_string(&mut buf).ok();
         prompt = buf.trim().to_string();
     }
-    if prompt.is_empty() {
+    if prompt.is_empty() && !list_models {
         return Err("no prompt given (pass as args or via stdin)".to_string());
     }
-    Ok(Args { url, prompt, new_tab, poll_ms, stable, timeout_s })
+    Ok(Args { url, prompt, new_tab, poll_ms, stable, timeout_s, model, list_models })
 }
 
 fn normalize_url(url: &str) -> String {
@@ -422,6 +463,26 @@ fn run() -> Result<Value, String> {
     }
 
     c.focus(&tab);
+
+    // --list-models: report the site's model options and stop.
+    if args.list_models {
+        let models = list_models(&c, &tab, site)?;
+        return Ok(json!({
+            "model": site.name(),
+            "url": app,
+            "response": if models.is_empty() {
+                format!("no switchable models on {} (gated on this tier/login)", site.name())
+            } else {
+                models.join("\n")
+            },
+        }));
+    }
+
+    // --model: switch before typing the prompt.
+    if let Some(m) = &args.model {
+        switch_model(&c, &tab, site, m)?;
+    }
+
     let lit = serde_json::to_string(&args.prompt).unwrap();
     let need = (args.prompt.chars().filter(|c| !c.is_whitespace()).count() / 2).max(1);
     // Inject with retry: some editors (Kimi's Lexical) start contenteditable=false
@@ -492,6 +553,207 @@ fn send(c: &Client, tab: &str, site: Site) -> Result<(), String> {
     // Enter-dispatch submit (Kimi/DeepSeek default, and fallback if a click failed).
     let _ = c.run_js(tab, &site.enter_submit_js());
     Ok(())
+}
+
+/// Click whichever element is currently marked with data-gptbclick. Tries the
+/// real compositor click first (needed for Angular/Gemini, which ignores synthetic
+/// events), then falls back to a synthetic pointer sequence (needed for Claude's
+/// fixed-header button, where the compositor click hits a scroll-into-view timeout,
+/// and Kimi's div trigger). Then removes the marker.
+fn click_marked(c: &Client, tab: &str) {
+    let real_ok = c
+        .post(&format!("/tabs/{tab}/action"), json!({ "kind": "click", "selector": "[data-gptbclick]" }))
+        .ok()
+        .and_then(|v| v.get("success").and_then(|s| s.as_bool()))
+        .unwrap_or(false);
+    if !real_ok {
+        synth_click_marked(c, tab);
+    }
+    unmark(c, tab);
+}
+
+/// Synthetic pointer sequence on the marked element (does not unmark).
+fn synth_click_marked(c: &Client, tab: &str) {
+    let _ = c.run_js(tab, "(function(){var el=document.querySelector('[data-gptbclick]');if(el){['pointerdown','mousedown','pointerup','mouseup','click'].forEach(function(t){el.dispatchEvent(new MouseEvent(t,{bubbles:true,cancelable:true,view:window}));});}return 1;})()");
+}
+
+fn unmark(c: &Client, tab: &str) {
+    let _ = c.run_js(tab, "(function(){var el=document.querySelector('[data-gptbclick]');if(el)el.removeAttribute('data-gptbclick');return 1;})()");
+}
+
+/// Count option elements currently visible for a site's picker.
+fn options_count(c: &Client, tab: &str, site: Site) -> usize {
+    let optsel = site.model_option_sel();
+    let js = format!("(function(){{var n=0;'{optsel}'.split(',').forEach(function(s){{n+=document.querySelectorAll(s.trim()).length;}});return n;}})()");
+    c.run_js(tab, &js).ok().and_then(|v| v.as_u64()).unwrap_or(0) as usize
+}
+
+/// Mark an element by CSS selector; returns whether it was found.
+fn mark_selector(c: &Client, tab: &str, sel: &str) -> bool {
+    let js = format!("(function(){{var el=document.querySelector('{sel}');if(!el)return false;el.setAttribute('data-gptbclick','1');return true;}})()");
+    c.run_js(tab, &js).ok().and_then(|v| v.as_bool()).unwrap_or(false)
+}
+
+/// Mark the first menuitem/button/div/span/a whose text contains `text`.
+fn mark_text(c: &Client, tab: &str, text: &str) -> bool {
+    let js = format!(
+        "(function(){{var t='{text}'.toLowerCase();var ns=document.querySelectorAll('[role=menuitem],button,div,span,a');\
+         for(var i=0;i<ns.length;i++){{if((ns[i].innerText||'').trim().toLowerCase().indexOf(t)>=0){{ns[i].setAttribute('data-gptbclick','1');return true;}}}}return false;}})()"
+    );
+    c.run_js(tab, &js).ok().and_then(|v| v.as_bool()).unwrap_or(false)
+}
+
+/// Open a site's model picker (with its optional "more models" expander).
+fn open_picker(c: &Client, tab: &str, site: Site) -> Result<(), String> {
+    let open = site.model_picker_open_sel().ok_or_else(|| format!("{} has no model picker", site.name()))?;
+    c.focus(tab);
+    // The picker button can render a beat after the composer — wait for it.
+    let present_js = format!("!!document.querySelector('{open}')");
+    if !wait_until(6, 300, || c.js_true(tab, &present_js)) {
+        return Err(format!("model picker not found on {}", site.name()));
+    }
+    mark_selector(c, tab, open);
+    click_marked(c, tab);
+    std::thread::sleep(Duration::from_millis(900));
+    // Some triggers (Claude's fixed-header button) report a successful compositor
+    // click without opening the menu — force a synthetic click if nothing appeared.
+    if options_count(c, tab, site) == 0 {
+        mark_selector(c, tab, open);
+        synth_click_marked(c, tab);
+        unmark(c, tab);
+        std::thread::sleep(Duration::from_millis(900));
+    }
+    Ok(())
+}
+
+fn close_picker(c: &Client, tab: &str) {
+    let _ = c.run_js(tab, "(function(){document.body.click();return 1;})()");
+}
+
+/// Poll the open picker for its option labels (first line of each option).
+fn read_options(c: &Client, tab: &str, site: Site) -> Vec<String> {
+    let optsel = site.model_option_sel();
+    let js = format!(
+        "(function(){{var out=[];'{optsel}'.split(',').forEach(function(s){{\
+         document.querySelectorAll(s.trim()).forEach(function(e){{var t=(e.innerText||'').trim().split('\\n')[0];\
+         if(t&&out.indexOf(t)<0)out.push(t);}});}});return out;}})()"
+    );
+    for _ in 0..8 {
+        if let Ok(v) = c.run_js(tab, &js) {
+            let arr: Vec<String> = v
+                .as_array()
+                .map(|a| a.iter().filter_map(|x| x.as_str().map(|s| s.to_string())).collect())
+                .unwrap_or_default();
+            if !arr.is_empty() {
+                return arr;
+            }
+        }
+        std::thread::sleep(Duration::from_millis(300));
+    }
+    vec![]
+}
+
+/// Mark the option whose first-line text matches `want`. Returns (found, available).
+fn mark_option(c: &Client, tab: &str, site: Site, want: &str) -> (bool, Vec<String>) {
+    let optsel = site.model_option_sel();
+    let js = format!(
+        "(function(){{var want='{want}';var opts=[];'{optsel}'.split(',').forEach(function(s){{\
+         document.querySelectorAll(s.trim()).forEach(function(e){{opts.push(e);}});}});\
+         var avail=[];for(var i=0;i<opts.length;i++){{var txt=(opts[i].innerText||'').trim().split('\\n')[0];\
+         if(!txt)continue;if(avail.indexOf(txt)<0)avail.push(txt);\
+         if(txt.toLowerCase().replace(/\\s+/g,'').indexOf(want)>=0){{opts[i].setAttribute('data-gptbclick','1');\
+         return {{found:true}};}}}}return {{found:false,available:avail}};}})()"
+    );
+    match c.run_js(tab, &js) {
+        Ok(r) => {
+            let found = r.get("found").and_then(|v| v.as_bool()).unwrap_or(false);
+            let avail = r
+                .get("available")
+                .and_then(|v| v.as_array())
+                .map(|a| a.iter().filter_map(|x| x.as_str().map(|s| s.to_string())).collect())
+                .unwrap_or_default();
+            (found, avail)
+        }
+        Err(_) => (false, vec![]),
+    }
+}
+
+/// Read the model options a site's picker currently offers.
+fn list_models(c: &Client, tab: &str, site: Site) -> Result<Vec<String>, String> {
+    if matches!(site, Site::DeepSeek) {
+        return Ok(vec!["DeepThink".into(), "Search".into()]);
+    }
+    open_picker(c, tab, site)?;
+    let mut models = read_options(c, tab, site);
+    // Reveal extra models behind an expander (Claude's "More models"), if any.
+    if let Some(exp) = site.model_expand_text() {
+        if mark_text(c, tab, exp) {
+            click_marked(c, tab);
+            std::thread::sleep(Duration::from_millis(500));
+            for m in read_options(c, tab, site) {
+                if !models.contains(&m) {
+                    models.push(m);
+                }
+            }
+        }
+    }
+    close_picker(c, tab);
+    Ok(models)
+}
+
+/// Switch the site's model before sending. Best-effort with a clear error listing
+/// available models when the requested one isn't offered (e.g. gated on free tier).
+fn switch_model(c: &Client, tab: &str, site: Site, model: &str) -> Result<(), String> {
+    c.focus(tab);
+    // DeepSeek: independent DeepThink / Search toggles, not a model picker.
+    if matches!(site, Site::DeepSeek) {
+        let want = model.to_lowercase();
+        let target = if want.contains("search") { "Search" } else { "DeepThink" };
+        let js = format!(
+            "(function(){{var target='{target}';var ns=document.querySelectorAll('div.ds-toggle-button');\
+             for(var i=0;i<ns.length;i++){{if((ns[i].innerText||'').trim().indexOf(target)>=0){{\
+             var pressed=ns[i].getAttribute('aria-pressed')==='true';\
+             if(!pressed)ns[i].setAttribute('data-gptbclick','1');\
+             return {{found:true,pressed:pressed}};}}}}return {{found:false}};}})()"
+        );
+        let r = c.run_js(tab, &js)?;
+        if r.get("found").and_then(|v| v.as_bool()).unwrap_or(false) {
+            if !r.get("pressed").and_then(|v| v.as_bool()).unwrap_or(false) {
+                click_marked(c, tab);
+            }
+            return Ok(());
+        }
+        return Err(format!("deepseek: could not find toggle for '{model}' (try 'deepthink' or 'search')"));
+    }
+
+    open_picker(c, tab, site)?;
+    let _ = read_options(c, tab, site); // ensure options rendered before matching
+    let want: String = model.to_lowercase().chars().filter(|c| !c.is_whitespace()).collect();
+    let (mut found, mut avail) = mark_option(c, tab, site, &want);
+    if !found {
+        if let Some(exp) = site.model_expand_text() {
+            if mark_text(c, tab, exp) {
+                click_marked(c, tab);
+                std::thread::sleep(Duration::from_millis(500));
+                let (f2, a2) = mark_option(c, tab, site, &want);
+                found = f2;
+                if !a2.is_empty() {
+                    avail = a2;
+                }
+            }
+        }
+    }
+    if found {
+        click_marked(c, tab);
+        std::thread::sleep(Duration::from_millis(600));
+        return Ok(());
+    }
+    close_picker(c, tab);
+    if avail.is_empty() {
+        Err(format!("model '{model}' not selectable on {} (picker empty — likely gated on this tier/login)", site.name()))
+    } else {
+        Err(format!("model '{model}' not found on {}. Available: {}", site.name(), avail.join(", ")))
+    }
 }
 
 fn await_response(c: &Client, tab: &str, site: Site, baseline_len: usize, args: &Args) -> Result<String, String> {
@@ -577,13 +839,20 @@ USAGE:
 
 SUPPORTED URLS:
   chatgpt.com   gemini.com   kimi.com   chat.deepseek.com
+  claude.ai     perplexity.ai   chat.z.ai
+  copilot.microsoft.com   grok.com   (require you to be signed in)
 
 FLAGS:
+  --model <name>    switch model before sending (fuzzy match; see --list-models)
+  --list-models     print the site's selectable models and exit
   --json            emit structured JSON instead of bare text
   --new-tab         force a new tab instead of reusing an open one
   --timeout <sec>   overall generation budget (default 240)
   --poll <ms>       poll interval while generating (default 700)
   --stable <n>      no-growth polls that mark completion (default 6)
+
+MODEL SWITCHING works on: gemini, kimi, claude, deepseek (DeepThink/Search toggle).
+  chatgpt / perplexity / z.ai gate model choice behind a paid tier or login.
 
 Assumes you are already logged in to the site in the PinchTab-controlled Chrome.";
 
