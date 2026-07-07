@@ -48,7 +48,7 @@
       "source_file": "mcp/src/index.ts",
       "source_location": "L1",
       "id": "mcp_src_index_ts",
-      "community": 9,
+      "community": 8,
       "norm_label": "index.ts"
     },
     {
@@ -57,7 +57,7 @@
       "source_file": "mcp/src/index.ts",
       "source_location": "L22",
       "id": "src_index_rungptbrowser",
-      "community": 9,
+      "community": 8,
       "norm_label": "rungptbrowser()"
     },
     {
@@ -66,7 +66,7 @@
       "source_file": "mcp/src/index.ts",
       "source_location": "L40",
       "id": "src_index_extracterrormessage",
-      "community": 9,
+      "community": 8,
       "norm_label": "extracterrormessage()"
     },
     {
@@ -75,7 +75,7 @@
       "source_file": "mcp/src/index.ts",
       "source_location": "L180",
       "id": "src_index_main",
-      "community": 9,
+      "community": 8,
       "norm_label": "main()"
     },
     {
@@ -84,7 +84,7 @@
       "source_file": "src/main.rs",
       "source_location": "L1",
       "id": "src_main_rs",
-      "community": 6,
+      "community": 1,
       "norm_label": "main.rs"
     },
     {
@@ -210,7 +210,7 @@
       "source_file": "src/main.rs",
       "source_location": "L224",
       "id": "src_main_site_model_picker_open_sel",
-      "community": 0,
+      "community": 1,
       "norm_label": ".model_picker_open_sel()"
     },
     {
@@ -219,7 +219,7 @@
       "source_file": "src/main.rs",
       "source_location": "L237",
       "id": "src_main_site_model_option_sel",
-      "community": 2,
+      "community": 1,
       "norm_label": ".model_option_sel()"
     },
     {
@@ -228,122 +228,149 @@
       "source_file": "src/main.rs",
       "source_location": "L250",
       "id": "src_main_site_model_expand_text",
-      "community": 2,
+      "community": 1,
       "norm_label": ".model_expand_text()"
+    },
+    {
+      "label": ".supports_image()",
+      "file_type": "code",
+      "source_file": "src/main.rs",
+      "source_location": "L258",
+      "id": "src_main_site_supports_image",
+      "community": 0,
+      "norm_label": ".supports_image()"
+    },
+    {
+      "label": ".image_src_js()",
+      "file_type": "code",
+      "source_file": "src/main.rs",
+      "source_location": "L263",
+      "id": "src_main_site_image_src_js",
+      "community": 0,
+      "norm_label": ".image_src_js()"
     },
     {
       "label": "Client",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L258",
+      "source_location": "L268",
       "id": "src_main_client",
-      "community": 3,
+      "community": 2,
       "norm_label": "client"
     },
     {
       "label": ".new()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L265",
+      "source_location": "L275",
       "id": "src_main_client_new",
-      "community": 0,
+      "community": 2,
       "norm_label": ".new()"
     },
     {
       "label": ".post()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L273",
+      "source_location": "L283",
       "id": "src_main_client_post",
-      "community": 3,
+      "community": 2,
       "norm_label": ".post()"
     },
     {
       "label": ".get()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L284",
+      "source_location": "L294",
       "id": "src_main_client_get",
-      "community": 3,
+      "community": 2,
       "norm_label": ".get()"
     },
     {
       "label": ".run_js()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L294",
+      "source_location": "L304",
       "id": "src_main_client_run_js",
-      "community": 2,
+      "community": 1,
       "norm_label": ".run_js()"
+    },
+    {
+      "label": ".get_bytes()",
+      "file_type": "code",
+      "source_file": "src/main.rs",
+      "source_location": "L310",
+      "id": "src_main_client_get_bytes",
+      "community": 2,
+      "norm_label": ".get_bytes()"
     },
     {
       "label": ".js_true()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L299",
+      "source_location": "L332",
       "id": "src_main_client_js_true",
-      "community": 3,
+      "community": 2,
       "norm_label": ".js_true()"
     },
     {
       "label": ".focus()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L303",
+      "source_location": "L336",
       "id": "src_main_client_focus",
-      "community": 3,
+      "community": 2,
       "norm_label": ".focus()"
     },
     {
       "label": "parse()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L308",
+      "source_location": "L341",
       "id": "src_main_parse",
-      "community": 3,
+      "community": 2,
       "norm_label": "parse()"
     },
     {
       "label": "load_config()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L322",
+      "source_location": "L355",
       "id": "src_main_load_config",
-      "community": 3,
+      "community": 2,
       "norm_label": "load_config()"
     },
     {
       "label": "Args",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L345",
+      "source_location": "L378",
       "id": "src_main_args",
-      "community": 0,
+      "community": 2,
       "norm_label": "args"
     },
     {
       "label": "parse_args()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L356",
+      "source_location": "L391",
       "id": "src_main_parse_args",
-      "community": 0,
+      "community": 2,
       "norm_label": "parse_args()"
     },
     {
       "label": "normalize_url()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L402",
+      "source_location": "L441",
       "id": "src_main_normalize_url",
-      "community": 0,
+      "community": 1,
       "norm_label": "normalize_url()"
     },
     {
       "label": "acquire_tab()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L410",
+      "source_location": "L449",
       "id": "src_main_acquire_tab",
       "community": 0,
       "norm_label": "acquire_tab()"
@@ -352,7 +379,7 @@
       "label": "run()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L442",
+      "source_location": "L481",
       "id": "src_main_run",
       "community": 0,
       "norm_label": "run()"
@@ -361,7 +388,7 @@
       "label": "send()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L534",
+      "source_location": "L598",
       "id": "src_main_send",
       "community": 0,
       "norm_label": "send()"
@@ -370,144 +397,189 @@
       "label": "click_marked()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L563",
+      "source_location": "L627",
       "id": "src_main_click_marked",
-      "community": 6,
+      "community": 1,
       "norm_label": "click_marked()"
     },
     {
       "label": "synth_click_marked()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L576",
+      "source_location": "L640",
       "id": "src_main_synth_click_marked",
-      "community": 6,
+      "community": 1,
       "norm_label": "synth_click_marked()"
     },
     {
       "label": "unmark()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L580",
+      "source_location": "L644",
       "id": "src_main_unmark",
-      "community": 6,
+      "community": 1,
       "norm_label": "unmark()"
     },
     {
       "label": "options_count()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L585",
+      "source_location": "L649",
       "id": "src_main_options_count",
-      "community": 2,
+      "community": 1,
       "norm_label": "options_count()"
     },
     {
       "label": "mark_selector()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L592",
+      "source_location": "L656",
       "id": "src_main_mark_selector",
-      "community": 6,
+      "community": 1,
       "norm_label": "mark_selector()"
     },
     {
       "label": "mark_text()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L598",
+      "source_location": "L662",
       "id": "src_main_mark_text",
-      "community": 2,
+      "community": 1,
       "norm_label": "mark_text()"
     },
     {
       "label": "open_picker()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L607",
+      "source_location": "L671",
       "id": "src_main_open_picker",
-      "community": 6,
+      "community": 1,
       "norm_label": "open_picker()"
     },
     {
       "label": "close_picker()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L629",
+      "source_location": "L693",
       "id": "src_main_close_picker",
-      "community": 2,
+      "community": 1,
       "norm_label": "close_picker()"
     },
     {
       "label": "read_options()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L634",
+      "source_location": "L698",
       "id": "src_main_read_options",
-      "community": 2,
+      "community": 1,
       "norm_label": "read_options()"
     },
     {
       "label": "mark_option()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L657",
+      "source_location": "L721",
       "id": "src_main_mark_option",
-      "community": 2,
+      "community": 1,
       "norm_label": "mark_option()"
     },
     {
       "label": "list_models()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L682",
+      "source_location": "L746",
       "id": "src_main_list_models",
-      "community": 2,
+      "community": 1,
       "norm_label": "list_models()"
     },
     {
       "label": "switch_model()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L706",
+      "source_location": "L770",
       "id": "src_main_switch_model",
-      "community": 2,
+      "community": 1,
       "norm_label": "switch_model()"
     },
     {
       "label": "await_response()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L759",
+      "source_location": "L823",
       "id": "src_main_await_response",
-      "community": 3,
+      "community": 0,
       "norm_label": "await_response()"
     },
     {
       "label": "as_text()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L817",
+      "source_location": "L881",
       "id": "src_main_as_text",
-      "community": 3,
+      "community": 0,
       "norm_label": "as_text()"
+    },
+    {
+      "label": "await_image()",
+      "file_type": "code",
+      "source_file": "src/main.rs",
+      "source_location": "L887",
+      "id": "src_main_await_image",
+      "community": 0,
+      "norm_label": "await_image()"
+    },
+    {
+      "label": "resolve_out_path()",
+      "file_type": "code",
+      "source_file": "src/main.rs",
+      "source_location": "L913",
+      "id": "src_main_resolve_out_path",
+      "community": 1,
+      "norm_label": "resolve_out_path()"
+    },
+    {
+      "label": "percent_encode()",
+      "file_type": "code",
+      "source_file": "src/main.rs",
+      "source_location": "L925",
+      "id": "src_main_percent_encode",
+      "community": 2,
+      "norm_label": "percent_encode()"
+    },
+    {
+      "label": "download_image()",
+      "file_type": "code",
+      "source_file": "src/main.rs",
+      "source_location": "L939",
+      "id": "src_main_download_image",
+      "community": 2,
+      "norm_label": "download_image()"
+    },
+    {
+      "label": "base64_decode()",
+      "file_type": "code",
+      "source_file": "src/main.rs",
+      "source_location": "L969",
+      "id": "src_main_base64_decode",
+      "community": 2,
+      "norm_label": "base64_decode()"
     },
     {
       "label": "wait_until()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L821",
+      "source_location": "L998",
       "id": "src_main_wait_until",
-      "community": 6,
+      "community": 1,
       "norm_label": "wait_until()"
     },
     {
       "label": "main()",
       "file_type": "code",
       "source_file": "src/main.rs",
-      "source_location": "L859",
+      "source_location": "L1038",
       "id": "src_main_main",
-      "community": 0,
+      "community": 2,
       "norm_label": "main()"
     },
     {
@@ -522,9 +594,9 @@
       "attributes": {
         "rationale": "lets an agent prompt a logged-in chatbot web UI like an API call, without an API key or per-token billing"
       },
-      "id": "readme_gptbrowser_cli",
-      "community": 4,
-      "norm_label": "gptbrowser cli"
+      "community": 6,
+      "norm_label": "gptbrowser cli",
+      "id": "readme_gptbrowser_cli"
     },
     {
       "label": "PinchTab",
@@ -535,9 +607,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_pinchtab",
-      "community": 10,
-      "norm_label": "pinchtab"
+      "community": 6,
+      "norm_label": "pinchtab",
+      "id": "readme_pinchtab"
     },
     {
       "label": "ChatGPT adapter",
@@ -548,9 +620,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_chatgpt_adapter",
-      "community": 4,
-      "norm_label": "chatgpt adapter"
+      "community": 9,
+      "norm_label": "chatgpt adapter",
+      "id": "readme_chatgpt_adapter"
     },
     {
       "label": "Gemini adapter",
@@ -561,9 +633,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_gemini_adapter",
-      "community": 4,
-      "norm_label": "gemini adapter"
+      "community": 9,
+      "norm_label": "gemini adapter",
+      "id": "readme_gemini_adapter"
     },
     {
       "label": "Kimi adapter",
@@ -574,9 +646,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_kimi_adapter",
-      "community": 4,
-      "norm_label": "kimi adapter"
+      "community": 11,
+      "norm_label": "kimi adapter",
+      "id": "readme_kimi_adapter"
     },
     {
       "label": "DeepSeek adapter",
@@ -587,9 +659,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_deepseek_adapter",
-      "community": 5,
-      "norm_label": "deepseek adapter"
+      "community": 7,
+      "norm_label": "deepseek adapter",
+      "id": "readme_deepseek_adapter"
     },
     {
       "label": "Claude adapter",
@@ -600,9 +672,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_claude_adapter",
-      "community": 4,
-      "norm_label": "claude adapter"
+      "community": 9,
+      "norm_label": "claude adapter",
+      "id": "readme_claude_adapter"
     },
     {
       "label": "Perplexity adapter",
@@ -613,9 +685,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_perplexity_adapter",
-      "community": 4,
-      "norm_label": "perplexity adapter"
+      "community": 11,
+      "norm_label": "perplexity adapter",
+      "id": "readme_perplexity_adapter"
     },
     {
       "label": "z.ai adapter",
@@ -626,9 +698,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_zai_adapter",
-      "community": 7,
-      "norm_label": "z.ai adapter"
+      "community": 5,
+      "norm_label": "z.ai adapter",
+      "id": "readme_zai_adapter"
     },
     {
       "label": "Copilot adapter",
@@ -642,9 +714,9 @@
       "attributes": {
         "rationale": "login-gated: MS SSO wall blocks unattended use"
       },
-      "id": "readme_copilot_adapter",
-      "community": 7,
-      "norm_label": "copilot adapter"
+      "community": 5,
+      "norm_label": "copilot adapter",
+      "id": "readme_copilot_adapter"
     },
     {
       "label": "Grok adapter",
@@ -658,9 +730,9 @@
       "attributes": {
         "rationale": "login-gated: signup paywall blocks unattended use"
       },
-      "id": "readme_grok_adapter",
-      "community": 7,
-      "norm_label": "grok adapter"
+      "community": 5,
+      "norm_label": "grok adapter",
+      "id": "readme_grok_adapter"
     },
     {
       "label": "Site::detect",
@@ -674,9 +746,9 @@
       "attributes": {
         "rationale": "simple substring match on the URL so callers can pass loose site names"
       },
-      "id": "readme_site_detect",
-      "community": 7,
-      "norm_label": "site::detect"
+      "community": 5,
+      "norm_label": "site::detect",
+      "id": "readme_site_detect"
     },
     {
       "label": "Model switching",
@@ -690,9 +762,9 @@
       "attributes": {
         "rationale": "lets a caller pick a specific underlying model (e.g. Opus vs Haiku) before prompting"
       },
-      "id": "readme_model_switching",
-      "community": 1,
-      "norm_label": "model switching"
+      "community": 3,
+      "norm_label": "model switching",
+      "id": "readme_model_switching"
     },
     {
       "label": "--list-models flag",
@@ -703,9 +775,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_list_models_flag",
-      "community": 1,
-      "norm_label": "--list-models flag"
+      "community": 3,
+      "norm_label": "--list-models flag",
+      "id": "readme_list_models_flag"
     },
     {
       "label": "--model flag",
@@ -716,9 +788,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_model_flag",
-      "community": 1,
-      "norm_label": "--model flag"
+      "community": 3,
+      "norm_label": "--model flag",
+      "id": "readme_model_flag"
     },
     {
       "label": "PinchTab HTTP client (ureq-based)",
@@ -732,9 +804,9 @@
       "attributes": {
         "rationale": "talks to local PinchTab daemon at /tabs, /tab, /tabs/<id>/{evaluate,navigate,action}"
       },
-      "id": "readme_pinchtab_http_client",
-      "community": 10,
-      "norm_label": "pinchtab http client (ureq-based)"
+      "community": 6,
+      "norm_label": "pinchtab http client (ureq-based)",
+      "id": "readme_pinchtab_http_client"
     },
     {
       "label": "Tab acquisition step",
@@ -745,9 +817,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_tab_acquisition",
-      "community": 10,
-      "norm_label": "tab acquisition step"
+      "community": 4,
+      "norm_label": "tab acquisition step",
+      "id": "readme_tab_acquisition"
     },
     {
       "label": "Composer wait step",
@@ -761,9 +833,9 @@
       "attributes": {
         "rationale": "polls a per-site CSS selector until the composer exists; absence is the login-check failure signal"
       },
-      "id": "readme_composer_wait",
-      "community": 8,
-      "norm_label": "composer wait step"
+      "community": 4,
+      "norm_label": "composer wait step",
+      "id": "readme_composer_wait"
     },
     {
       "label": "Prompt injection techniques",
@@ -777,9 +849,9 @@
       "attributes": {
         "rationale": "composer implementation varies by site (ProseMirror/Quill/tiptap, Lexical, native textarea), so injection must vary too"
       },
-      "id": "readme_prompt_injection",
-      "community": 8,
-      "norm_label": "prompt injection techniques"
+      "community": 4,
+      "norm_label": "prompt injection techniques",
+      "id": "readme_prompt_injection"
     },
     {
       "label": "ProseMirror/Quill/tiptap injection technique",
@@ -793,9 +865,9 @@
       "attributes": {
         "rationale": "focus, execCommand selectAll+delete, then insertText"
       },
-      "id": "readme_prosemirror_injection",
-      "community": 4,
-      "norm_label": "prosemirror/quill/tiptap injection technique"
+      "community": 9,
+      "norm_label": "prosemirror/quill/tiptap injection technique",
+      "id": "readme_prosemirror_injection"
     },
     {
       "label": "Lexical injection technique",
@@ -809,9 +881,9 @@
       "attributes": {
         "rationale": "execCommand('delete') no-ops on Lexical editors, so select all via DOM Range + insertText instead; Kimi's editor also starts contenteditable=false and needs a real click, wrapped in an 8-attempt retry loop"
       },
-      "id": "readme_lexical_injection",
-      "community": 4,
-      "norm_label": "lexical injection technique"
+      "community": 11,
+      "norm_label": "lexical injection technique",
+      "id": "readme_lexical_injection"
     },
     {
       "label": "Native textarea injection technique",
@@ -825,9 +897,9 @@
       "attributes": {
         "rationale": "uses React's native HTMLTextAreaElement value setter + synthetic input event to bypass React's controlled-input tracking"
       },
-      "id": "readme_native_textarea_injection",
-      "community": 7,
-      "norm_label": "native textarea injection technique"
+      "community": 5,
+      "norm_label": "native textarea injection technique",
+      "id": "readme_native_textarea_injection"
     },
     {
       "label": "Submit step",
@@ -841,9 +913,9 @@
       "attributes": {
         "rationale": "clicks send button where available and enabled, else dispatches synthetic Enter keydown/keypress/keyup"
       },
-      "id": "readme_submit_step",
-      "community": 8,
-      "norm_label": "submit step"
+      "community": 4,
+      "norm_label": "submit step",
+      "id": "readme_submit_step"
     },
     {
       "label": "Tab-foreground trick",
@@ -857,9 +929,9 @@
       "attributes": {
         "rationale": "load-bearing reliability trick: Chrome throttles background tabs which stalls streamed SSE responses mid-sentence, so gptbrowser calls POST /tab {action: focus} on every single poll during generation"
       },
-      "id": "readme_tab_foreground_trick",
-      "community": 8,
-      "norm_label": "tab-foreground trick"
+      "community": 4,
+      "norm_label": "tab-foreground trick",
+      "id": "readme_tab_foreground_trick"
     },
     {
       "label": "Completion detection step",
@@ -873,9 +945,9 @@
       "attributes": {
         "rationale": "polls assistant message innerText length plus a generating signal; done = length stable for N consecutive polls and not actively generating. Defaults: poll every 700ms, 6 stable polls (~4.2s), 45s first-token wait, 240s hard ceiling"
       },
-      "id": "readme_completion_detection",
-      "community": 8,
-      "norm_label": "completion detection step"
+      "community": 4,
+      "norm_label": "completion detection step",
+      "id": "readme_completion_detection"
     },
     {
       "label": "Extract and return step",
@@ -889,9 +961,9 @@
       "attributes": {
         "rationale": "returns clean innerText with no HTML or markdown fencing artifacts beyond what the site itself renders"
       },
-      "id": "readme_extract_return_step",
-      "community": 8,
-      "norm_label": "extract and return step"
+      "community": 4,
+      "norm_label": "extract and return step",
+      "id": "readme_extract_return_step"
     },
     {
       "label": "gptbrowser MCP server",
@@ -902,9 +974,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_mcp_server",
-      "community": 1,
-      "norm_label": "gptbrowser mcp server"
+      "community": 3,
+      "norm_label": "gptbrowser mcp server",
+      "id": "readme_mcp_server"
     },
     {
       "label": "Troubleshooting guide",
@@ -915,9 +987,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_troubleshooting",
-      "community": 8,
-      "norm_label": "troubleshooting guide"
+      "community": 4,
+      "norm_label": "troubleshooting guide",
+      "id": "readme_troubleshooting"
     },
     {
       "label": "build.sh",
@@ -931,9 +1003,9 @@
       "attributes": {
         "rationale": "installs binary to /opt/homebrew/bin/gptbrowser (not ~/.cargo/bin) so non-interactive shells and sub-agents find it on PATH"
       },
-      "id": "readme_build_sh",
-      "community": 4,
-      "norm_label": "build.sh"
+      "community": 6,
+      "norm_label": "build.sh",
+      "id": "readme_build_sh"
     },
     {
       "label": "gptbrowser vs direct-PinchTab token benchmark",
@@ -947,9 +1019,9 @@
       "attributes": {
         "rationale": "isolates the cost difference between shelling out to gptbrowser (one tool call, one string back) versus a sub-agent driving PinchTab directly"
       },
-      "id": "benchmarks_token_benchmark",
-      "community": 5,
-      "norm_label": "gptbrowser vs direct-pinchtab token benchmark"
+      "community": 6,
+      "norm_label": "gptbrowser vs direct-pinchtab token benchmark",
+      "id": "benchmarks_token_benchmark"
     },
     {
       "label": "Benchmark methodology",
@@ -963,9 +1035,9 @@
       "attributes": {
         "rationale": "both arms used identical Sonnet sub-agent and identical prompt; both arms passed, so this is a cost-per-answer comparison, not a success-rate comparison"
       },
-      "id": "benchmarks_methodology",
-      "community": 5,
-      "norm_label": "benchmark methodology"
+      "community": 7,
+      "norm_label": "benchmark methodology",
+      "id": "benchmarks_methodology"
     },
     {
       "label": "Benchmark results (Gemini/Kimi/DeepSeek)",
@@ -979,9 +1051,9 @@
       "attributes": {
         "rationale": "gptbrowser arm averages ~51.3k tokens, 1 tool call, ~21s end-to-end vs direct-PinchTab's 7-11 tool calls and 61-199s"
       },
-      "id": "benchmarks_results_table",
-      "community": 5,
-      "norm_label": "benchmark results (gemini/kimi/deepseek)"
+      "community": 7,
+      "norm_label": "benchmark results (gemini/kimi/deepseek)",
+      "id": "benchmarks_results_table"
     },
     {
       "label": "Marginal cost analysis",
@@ -995,9 +1067,9 @@
       "attributes": {
         "rationale": "both arms pay a fixed ~51.3k token floor (system prompt + tool schemas); marginal cost is ~50 tokens for gptbrowser vs ~5,500 for direct PinchTab, a 10-50x difference, driven largely by direct PinchTab re-reading the growing response text into context on every poll"
       },
-      "id": "benchmarks_marginal_cost_analysis",
-      "community": 5,
-      "norm_label": "marginal cost analysis"
+      "community": 7,
+      "norm_label": "marginal cost analysis",
+      "id": "benchmarks_marginal_cost_analysis"
     },
     {
       "label": "Benchmarks takeaway",
@@ -1011,9 +1083,9 @@
       "attributes": {
         "rationale": "route 'ask a chatbot web UI something and get text back' tasks through gptbrowser rather than raw browser automation, especially for fan-out sub-agent workflows"
       },
-      "id": "benchmarks_takeaway",
-      "community": 5,
-      "norm_label": "benchmarks takeaway"
+      "community": 7,
+      "norm_label": "benchmarks takeaway",
+      "id": "benchmarks_takeaway"
     },
     {
       "label": "Claude Code usage section",
@@ -1024,9 +1096,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "usage_claude_code_section",
-      "community": 5,
-      "norm_label": "claude code usage section"
+      "community": 6,
+      "norm_label": "claude code usage section",
+      "id": "usage_claude_code_section"
     },
     {
       "label": "/gptbrowser slash command",
@@ -1037,9 +1109,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "usage_slash_command",
-      "community": 11,
-      "norm_label": "/gptbrowser slash command"
+      "community": 10,
+      "norm_label": "/gptbrowser slash command",
+      "id": "usage_slash_command"
     },
     {
       "label": "Slash command contract",
@@ -1053,9 +1125,9 @@
       "attributes": {
         "rationale": "splits $ARGUMENTS into URL and PROMPT, runs exactly one Bash call, returns only stdout, reports stderr verbatim on failure, and forbids opening a browser itself"
       },
-      "id": "usage_command_contract",
-      "community": 11,
-      "norm_label": "slash command contract"
+      "community": 10,
+      "norm_label": "slash command contract",
+      "id": "usage_command_contract"
     },
     {
       "label": "Known gap: command site-list drift",
@@ -1069,9 +1141,9 @@
       "attributes": {
         "rationale": "the shipped command's docs still mention only ChatGPT/Gemini/Kimi/DeepSeek while main.rs's Site enum actually supports nine sites including Claude, Perplexity, and z.ai (working) plus Copilot/Grok (pending login)"
       },
-      "id": "usage_known_gap_site_list",
-      "community": 7,
-      "norm_label": "known gap: command site-list drift"
+      "community": 5,
+      "norm_label": "known gap: command site-list drift",
+      "id": "usage_known_gap_site_list"
     },
     {
       "label": "allowed-tools: Bash(gptbrowser:*) scoping",
@@ -1085,9 +1157,9 @@
       "attributes": {
         "rationale": "scopes the slash command to only ever shell out to gptbrowser so it can't be used to smuggle in arbitrary Bash"
       },
-      "id": "usage_allowed_tools_scoping",
-      "community": 11,
-      "norm_label": "allowed-tools: bash(gptbrowser:*) scoping"
+      "community": 10,
+      "norm_label": "allowed-tools: bash(gptbrowser:*) scoping",
+      "id": "usage_allowed_tools_scoping"
     },
     {
       "label": "Sub-agent \"feels like an API\" pattern",
@@ -1101,9 +1173,9 @@
       "attributes": {
         "rationale": "spin up a sub-agent via the Agent tool and hand it a single gptbrowser call as its entire task rather than letting it drive a browser itself; good fit for parallel fan-out across sites"
       },
-      "id": "usage_subagent_api_pattern",
-      "community": 5,
-      "norm_label": "sub-agent \"feels like an api\" pattern"
+      "community": 6,
+      "norm_label": "sub-agent \"feels like an api\" pattern",
+      "id": "usage_subagent_api_pattern"
     },
     {
       "label": "Codex / other shells usage section",
@@ -1117,9 +1189,9 @@
       "attributes": {
         "rationale": "the binary is Claude-agnostic; any shell/CI step that can run an arbitrary binary can call gptbrowser directly"
       },
-      "id": "usage_codex_other_shells_section",
       "community": 12,
-      "norm_label": "codex / other shells usage section"
+      "norm_label": "codex / other shells usage section",
+      "id": "usage_codex_other_shells_section"
     },
     {
       "label": "--json flag",
@@ -1133,9 +1205,9 @@
       "attributes": {
         "rationale": "gives a stable parseable {model,url,prompt,response,elapsed_ms} shape for scripting"
       },
-      "id": "usage_json_flag",
       "community": 12,
-      "norm_label": "--json flag"
+      "norm_label": "--json flag",
+      "id": "usage_json_flag"
     },
     {
       "label": "Antigravity / any MCP client usage section",
@@ -1146,9 +1218,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "usage_antigravity_mcp_section",
-      "community": 1,
-      "norm_label": "antigravity / any mcp client usage section"
+      "community": 3,
+      "norm_label": "antigravity / any mcp client usage section",
+      "id": "usage_antigravity_mcp_section"
     },
     {
       "label": "gptbrowser-mcp stdio server",
@@ -1162,9 +1234,9 @@
       "attributes": {
         "rationale": "wraps the gptbrowser CLI so any MCP-capable coding tool can prompt logged-in chatbot web UIs via typed tool calls instead of shelling out"
       },
-      "id": "mcp_readme_gptbrowser_mcp_server",
-      "community": 1,
-      "norm_label": "gptbrowser-mcp stdio server"
+      "community": 3,
+      "norm_label": "gptbrowser-mcp stdio server",
+      "id": "mcp_readme_gptbrowser_mcp_server"
     },
     {
       "label": "ask_model tool",
@@ -1178,9 +1250,9 @@
       "attributes": {
         "rationale": "runs gptbrowser --json [--model][--timeout] <url> <prompt> and returns response text; isError:true with parsed stderr on non-zero exit"
       },
-      "id": "mcp_readme_ask_model_tool",
-      "community": 1,
-      "norm_label": "ask_model tool"
+      "community": 3,
+      "norm_label": "ask_model tool",
+      "id": "mcp_readme_ask_model_tool"
     },
     {
       "label": "list_models tool",
@@ -1194,9 +1266,9 @@
       "attributes": {
         "rationale": "runs gptbrowser --list-models <url> and returns newline-separated available models"
       },
-      "id": "mcp_readme_list_models_tool",
-      "community": 1,
-      "norm_label": "list_models tool"
+      "community": 3,
+      "norm_label": "list_models tool",
+      "id": "mcp_readme_list_models_tool"
     },
     {
       "label": "GPTBROWSER_BIN env var",
@@ -1210,9 +1282,9 @@
       "attributes": {
         "rationale": "overrides the CLI binary location when gptbrowser isn't on $PATH for the environment Claude Code launches from"
       },
-      "id": "mcp_readme_gptbrowser_bin_env",
-      "community": 1,
-      "norm_label": "gptbrowser_bin env var"
+      "community": 3,
+      "norm_label": "gptbrowser_bin env var",
+      "id": "mcp_readme_gptbrowser_bin_env"
     },
     {
       "label": "execFile argument-array safety",
@@ -1226,9 +1298,9 @@
       "attributes": {
         "rationale": "arguments passed via execFile with an argument array, never shell string interpolation, so prompts with quotes/newlines/special chars are safe"
       },
-      "id": "mcp_readme_execfile_safety",
-      "community": 1,
-      "norm_label": "execfile argument-array safety"
+      "community": 3,
+      "norm_label": "execfile argument-array safety",
+      "id": "mcp_readme_execfile_safety"
     },
     {
       "label": "MCP exec timeout defaults",
@@ -1242,9 +1314,9 @@
       "attributes": {
         "rationale": "defaults to 300s regardless of timeout_sec; extended to timeout_sec+30s when that's larger, giving gptbrowser's 10-60s runtime headroom"
       },
-      "id": "mcp_readme_exec_timeout",
-      "community": 1,
-      "norm_label": "mcp exec timeout defaults"
+      "community": 3,
+      "norm_label": "mcp exec timeout defaults",
+      "id": "mcp_readme_exec_timeout"
     },
     {
       "label": "claude/commands/gptbrowser.md command file",
@@ -1255,9 +1327,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "command_gptbrowser_slash_file",
-      "community": 7,
-      "norm_label": "claude/commands/gptbrowser.md command file"
+      "community": 5,
+      "norm_label": "claude/commands/gptbrowser.md command file",
+      "id": "command_gptbrowser_slash_file"
     }
   ],
   "links": [
@@ -1313,7 +1385,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L258",
+      "source_location": "L268",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_client",
@@ -1325,7 +1397,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L308",
+      "source_location": "L341",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_parse",
@@ -1337,7 +1409,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L322",
+      "source_location": "L355",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_load_config",
@@ -1349,7 +1421,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L345",
+      "source_location": "L378",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_args",
@@ -1361,7 +1433,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L356",
+      "source_location": "L391",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_parse_args",
@@ -1373,7 +1445,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L402",
+      "source_location": "L441",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_normalize_url",
@@ -1385,7 +1457,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L410",
+      "source_location": "L449",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_acquire_tab",
@@ -1397,7 +1469,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L442",
+      "source_location": "L481",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_run",
@@ -1409,7 +1481,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L534",
+      "source_location": "L598",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_send",
@@ -1421,7 +1493,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L563",
+      "source_location": "L627",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_click_marked",
@@ -1433,7 +1505,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L576",
+      "source_location": "L640",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_synth_click_marked",
@@ -1445,7 +1517,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L580",
+      "source_location": "L644",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_unmark",
@@ -1457,7 +1529,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L585",
+      "source_location": "L649",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_options_count",
@@ -1469,7 +1541,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L592",
+      "source_location": "L656",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_mark_selector",
@@ -1481,7 +1553,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L598",
+      "source_location": "L662",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_mark_text",
@@ -1493,7 +1565,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L607",
+      "source_location": "L671",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_open_picker",
@@ -1505,7 +1577,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L629",
+      "source_location": "L693",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_close_picker",
@@ -1517,7 +1589,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L634",
+      "source_location": "L698",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_read_options",
@@ -1529,7 +1601,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L657",
+      "source_location": "L721",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_mark_option",
@@ -1541,7 +1613,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L682",
+      "source_location": "L746",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_list_models",
@@ -1553,7 +1625,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L706",
+      "source_location": "L770",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_switch_model",
@@ -1565,7 +1637,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L759",
+      "source_location": "L823",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_await_response",
@@ -1577,7 +1649,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L817",
+      "source_location": "L881",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_as_text",
@@ -1589,7 +1661,67 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L821",
+      "source_location": "L887",
+      "weight": 1.0,
+      "_src": "src_main_rs",
+      "_tgt": "src_main_await_image",
+      "source": "src_main_rs",
+      "target": "src_main_await_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L913",
+      "weight": 1.0,
+      "_src": "src_main_rs",
+      "_tgt": "src_main_resolve_out_path",
+      "source": "src_main_rs",
+      "target": "src_main_resolve_out_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L925",
+      "weight": 1.0,
+      "_src": "src_main_rs",
+      "_tgt": "src_main_percent_encode",
+      "source": "src_main_rs",
+      "target": "src_main_percent_encode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L939",
+      "weight": 1.0,
+      "_src": "src_main_rs",
+      "_tgt": "src_main_download_image",
+      "source": "src_main_rs",
+      "target": "src_main_download_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L969",
+      "weight": 1.0,
+      "_src": "src_main_rs",
+      "_tgt": "src_main_base64_decode",
+      "source": "src_main_rs",
+      "target": "src_main_base64_decode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L998",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_wait_until",
@@ -1601,7 +1733,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L859",
+      "source_location": "L1038",
       "weight": 1.0,
       "_src": "src_main_rs",
       "_tgt": "src_main_main",
@@ -1790,10 +1922,34 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L258",
+      "weight": 1.0,
+      "_src": "src_main_site",
+      "_tgt": "src_main_site_supports_image",
+      "source": "src_main_site",
+      "target": "src_main_site_supports_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L263",
+      "weight": 1.0,
+      "_src": "src_main_site",
+      "_tgt": "src_main_site_image_src_js",
+      "source": "src_main_site",
+      "target": "src_main_site_image_src_js",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L416",
+      "source_location": "L455",
       "weight": 1.0,
       "_src": "src_main_acquire_tab",
       "_tgt": "src_main_site_detect",
@@ -1805,7 +1961,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L445",
+      "source_location": "L484",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_site_detect",
@@ -1817,7 +1973,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L452",
+      "source_location": "L495",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_site_app_url",
@@ -1829,7 +1985,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L457",
+      "source_location": "L501",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_site_composer_present_js",
@@ -1841,7 +1997,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L494",
+      "source_location": "L544",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_site_needs_click_activation",
@@ -1889,7 +2045,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L501",
+      "source_location": "L551",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_site_inject_js",
@@ -1901,7 +2057,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L535",
+      "source_location": "L599",
       "weight": 1.0,
       "_src": "src_main_send",
       "_tgt": "src_main_site_send_button_sel",
@@ -1913,7 +2069,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L554",
+      "source_location": "L618",
       "weight": 1.0,
       "_src": "src_main_send",
       "_tgt": "src_main_site_enter_submit_js",
@@ -1925,7 +2081,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L519",
+      "source_location": "L569",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_site_response_js",
@@ -1937,7 +2093,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L810",
+      "source_location": "L874",
       "weight": 1.0,
       "_src": "src_main_await_response",
       "_tgt": "src_main_site_response_js",
@@ -1949,7 +2105,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L608",
+      "source_location": "L672",
       "weight": 1.0,
       "_src": "src_main_open_picker",
       "_tgt": "src_main_site_model_picker_open_sel",
@@ -1961,7 +2117,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L586",
+      "source_location": "L650",
       "weight": 1.0,
       "_src": "src_main_options_count",
       "_tgt": "src_main_site_model_option_sel",
@@ -1973,7 +2129,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L635",
+      "source_location": "L699",
       "weight": 1.0,
       "_src": "src_main_read_options",
       "_tgt": "src_main_site_model_option_sel",
@@ -1985,7 +2141,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L658",
+      "source_location": "L722",
       "weight": 1.0,
       "_src": "src_main_mark_option",
       "_tgt": "src_main_site_model_option_sel",
@@ -1997,7 +2153,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L689",
+      "source_location": "L753",
       "weight": 1.0,
       "_src": "src_main_list_models",
       "_tgt": "src_main_site_model_expand_text",
@@ -2009,7 +2165,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L734",
+      "source_location": "L798",
       "weight": 1.0,
       "_src": "src_main_switch_model",
       "_tgt": "src_main_site_model_expand_text",
@@ -2018,10 +2174,34 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L491",
+      "weight": 1.0,
+      "_src": "src_main_run",
+      "_tgt": "src_main_site_supports_image",
+      "source": "src_main_site_supports_image",
+      "target": "src_main_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L901",
+      "weight": 1.0,
+      "_src": "src_main_await_image",
+      "_tgt": "src_main_site_image_src_js",
+      "source": "src_main_site_image_src_js",
+      "target": "src_main_await_image",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L265",
+      "source_location": "L275",
       "weight": 1.0,
       "_src": "src_main_client",
       "_tgt": "src_main_client_new",
@@ -2033,7 +2213,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L273",
+      "source_location": "L283",
       "weight": 1.0,
       "_src": "src_main_client",
       "_tgt": "src_main_client_post",
@@ -2045,7 +2225,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L284",
+      "source_location": "L294",
       "weight": 1.0,
       "_src": "src_main_client",
       "_tgt": "src_main_client_get",
@@ -2057,7 +2237,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L294",
+      "source_location": "L304",
       "weight": 1.0,
       "_src": "src_main_client",
       "_tgt": "src_main_client_run_js",
@@ -2069,7 +2249,19 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L299",
+      "source_location": "L310",
+      "weight": 1.0,
+      "_src": "src_main_client",
+      "_tgt": "src_main_client_get_bytes",
+      "source": "src_main_client",
+      "target": "src_main_client_get_bytes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L332",
       "weight": 1.0,
       "_src": "src_main_client",
       "_tgt": "src_main_client_js_true",
@@ -2081,7 +2273,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L303",
+      "source_location": "L336",
       "weight": 1.0,
       "_src": "src_main_client",
       "_tgt": "src_main_client_focus",
@@ -2093,7 +2285,19 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L358",
+      "source_location": "L319",
+      "weight": 1.0,
+      "_src": "src_main_client_get_bytes",
+      "_tgt": "src_main_client_new",
+      "source": "src_main_client_new",
+      "target": "src_main_client_get_bytes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L393",
       "weight": 1.0,
       "_src": "src_main_parse_args",
       "_tgt": "src_main_client_new",
@@ -2105,7 +2309,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L449",
+      "source_location": "L488",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_client_new",
@@ -2117,7 +2321,19 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L281",
+      "source_location": "L980",
+      "weight": 1.0,
+      "_src": "src_main_base64_decode",
+      "_tgt": "src_main_client_new",
+      "source": "src_main_client_new",
+      "target": "src_main_base64_decode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L291",
       "weight": 1.0,
       "_src": "src_main_client_post",
       "_tgt": "src_main_parse",
@@ -2129,7 +2345,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L295",
+      "source_location": "L305",
       "weight": 1.0,
       "_src": "src_main_client_run_js",
       "_tgt": "src_main_client_post",
@@ -2141,7 +2357,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L304",
+      "source_location": "L337",
       "weight": 1.0,
       "_src": "src_main_client_focus",
       "_tgt": "src_main_client_post",
@@ -2153,7 +2369,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L424",
+      "source_location": "L463",
       "weight": 1.0,
       "_src": "src_main_acquire_tab",
       "_tgt": "src_main_client_post",
@@ -2165,7 +2381,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L455",
+      "source_location": "L499",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_client_post",
@@ -2177,7 +2393,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L564",
+      "source_location": "L628",
       "weight": 1.0,
       "_src": "src_main_click_marked",
       "_tgt": "src_main_client_post",
@@ -2189,7 +2405,19 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L291",
+      "source_location": "L946",
+      "weight": 1.0,
+      "_src": "src_main_download_image",
+      "_tgt": "src_main_client_post",
+      "source": "src_main_client_post",
+      "target": "src_main_download_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L301",
       "weight": 1.0,
       "_src": "src_main_client_get",
       "_tgt": "src_main_parse",
@@ -2201,7 +2429,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L296",
+      "source_location": "L306",
       "weight": 1.0,
       "_src": "src_main_client_run_js",
       "_tgt": "src_main_client_get",
@@ -2213,7 +2441,19 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L330",
+      "source_location": "L312",
+      "weight": 1.0,
+      "_src": "src_main_client_get_bytes",
+      "_tgt": "src_main_client_get",
+      "source": "src_main_client_get",
+      "target": "src_main_client_get_bytes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L363",
       "weight": 1.0,
       "_src": "src_main_load_config",
       "_tgt": "src_main_client_get",
@@ -2225,7 +2465,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L373",
+      "source_location": "L410",
       "weight": 1.0,
       "_src": "src_main_parse_args",
       "_tgt": "src_main_client_get",
@@ -2237,7 +2477,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L412",
+      "source_location": "L451",
       "weight": 1.0,
       "_src": "src_main_acquire_tab",
       "_tgt": "src_main_client_get",
@@ -2249,7 +2489,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L502",
+      "source_location": "L552",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_client_get",
@@ -2261,7 +2501,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L546",
+      "source_location": "L610",
       "weight": 1.0,
       "_src": "src_main_send",
       "_tgt": "src_main_client_get",
@@ -2273,7 +2513,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L567",
+      "source_location": "L631",
       "weight": 1.0,
       "_src": "src_main_click_marked",
       "_tgt": "src_main_client_get",
@@ -2285,7 +2525,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L669",
+      "source_location": "L733",
       "weight": 1.0,
       "_src": "src_main_mark_option",
       "_tgt": "src_main_client_get",
@@ -2297,7 +2537,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L720",
+      "source_location": "L784",
       "weight": 1.0,
       "_src": "src_main_switch_model",
       "_tgt": "src_main_client_get",
@@ -2309,7 +2549,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L773",
+      "source_location": "L837",
       "weight": 1.0,
       "_src": "src_main_await_response",
       "_tgt": "src_main_client_get",
@@ -2321,7 +2561,31 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L501",
+      "source_location": "L950",
+      "weight": 1.0,
+      "_src": "src_main_download_image",
+      "_tgt": "src_main_client_get",
+      "source": "src_main_client_get",
+      "target": "src_main_download_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L1044",
+      "weight": 1.0,
+      "_src": "src_main_main",
+      "_tgt": "src_main_client_get",
+      "source": "src_main_client_get",
+      "target": "src_main_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L551",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_client_run_js",
@@ -2333,7 +2597,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L545",
+      "source_location": "L609",
       "weight": 1.0,
       "_src": "src_main_send",
       "_tgt": "src_main_client_run_js",
@@ -2345,7 +2609,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L577",
+      "source_location": "L641",
       "weight": 1.0,
       "_src": "src_main_synth_click_marked",
       "_tgt": "src_main_client_run_js",
@@ -2357,7 +2621,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L581",
+      "source_location": "L645",
       "weight": 1.0,
       "_src": "src_main_unmark",
       "_tgt": "src_main_client_run_js",
@@ -2369,7 +2633,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L588",
+      "source_location": "L652",
       "weight": 1.0,
       "_src": "src_main_options_count",
       "_tgt": "src_main_client_run_js",
@@ -2381,7 +2645,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L594",
+      "source_location": "L658",
       "weight": 1.0,
       "_src": "src_main_mark_selector",
       "_tgt": "src_main_client_run_js",
@@ -2393,7 +2657,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L603",
+      "source_location": "L667",
       "weight": 1.0,
       "_src": "src_main_mark_text",
       "_tgt": "src_main_client_run_js",
@@ -2405,7 +2669,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L630",
+      "source_location": "L694",
       "weight": 1.0,
       "_src": "src_main_close_picker",
       "_tgt": "src_main_client_run_js",
@@ -2417,7 +2681,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L642",
+      "source_location": "L706",
       "weight": 1.0,
       "_src": "src_main_read_options",
       "_tgt": "src_main_client_run_js",
@@ -2429,7 +2693,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L667",
+      "source_location": "L731",
       "weight": 1.0,
       "_src": "src_main_mark_option",
       "_tgt": "src_main_client_run_js",
@@ -2441,7 +2705,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L719",
+      "source_location": "L783",
       "weight": 1.0,
       "_src": "src_main_switch_model",
       "_tgt": "src_main_client_run_js",
@@ -2453,7 +2717,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L772",
+      "source_location": "L836",
       "weight": 1.0,
       "_src": "src_main_await_response",
       "_tgt": "src_main_client_run_js",
@@ -2465,7 +2729,31 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L457",
+      "source_location": "L893",
+      "weight": 1.0,
+      "_src": "src_main_await_image",
+      "_tgt": "src_main_client_run_js",
+      "source": "src_main_client_run_js",
+      "target": "src_main_await_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L959",
+      "weight": 1.0,
+      "_src": "src_main_download_image",
+      "_tgt": "src_main_client_get_bytes",
+      "source": "src_main_client_get_bytes",
+      "target": "src_main_download_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L501",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_client_js_true",
@@ -2477,7 +2765,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L612",
+      "source_location": "L676",
       "weight": 1.0,
       "_src": "src_main_open_picker",
       "_tgt": "src_main_client_js_true",
@@ -2489,7 +2777,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L454",
+      "source_location": "L497",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_client_focus",
@@ -2501,24 +2789,12 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L609",
+      "source_location": "L673",
       "weight": 1.0,
       "_src": "src_main_open_picker",
       "_tgt": "src_main_client_focus",
       "source": "src_main_client_focus",
       "target": "src_main_open_picker",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main.rs",
-      "source_location": "L707",
-      "weight": 1.0,
-      "_src": "src_main_switch_model",
-      "_tgt": "src_main_client_focus",
-      "source": "src_main_client_focus",
-      "target": "src_main_switch_model",
       "confidence_score": 1.0
     },
     {
@@ -2527,6 +2803,18 @@
       "source_file": "src/main.rs",
       "source_location": "L771",
       "weight": 1.0,
+      "_src": "src_main_switch_model",
+      "_tgt": "src_main_client_focus",
+      "source": "src_main_client_focus",
+      "target": "src_main_switch_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L835",
+      "weight": 1.0,
       "_src": "src_main_await_response",
       "_tgt": "src_main_client_focus",
       "source": "src_main_client_focus",
@@ -2537,7 +2825,19 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L377",
+      "source_location": "L891",
+      "weight": 1.0,
+      "_src": "src_main_await_image",
+      "_tgt": "src_main_client_focus",
+      "source": "src_main_client_focus",
+      "target": "src_main_await_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L416",
       "weight": 1.0,
       "_src": "src_main_parse_args",
       "_tgt": "src_main_parse",
@@ -2549,7 +2849,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L448",
+      "source_location": "L487",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_load_config",
@@ -2561,7 +2861,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L357",
+      "source_location": "L392",
       "weight": 1.0,
       "_src": "src_main_parse_args",
       "_tgt": "src_main_args",
@@ -2573,7 +2873,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L862",
+      "source_location": "L1041",
       "weight": 1.0,
       "_src": "src_main_main",
       "_tgt": "src_main_args",
@@ -2585,7 +2885,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L443",
+      "source_location": "L482",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_parse_args",
@@ -2597,7 +2897,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L444",
+      "source_location": "L483",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_normalize_url",
@@ -2609,7 +2909,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L453",
+      "source_location": "L496",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_acquire_tab",
@@ -2621,7 +2921,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L457",
+      "source_location": "L501",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_wait_until",
@@ -2633,7 +2933,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L469",
+      "source_location": "L513",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_list_models",
@@ -2645,7 +2945,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L483",
+      "source_location": "L527",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_switch_model",
@@ -2657,7 +2957,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L519",
+      "source_location": "L569",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_as_text",
@@ -2669,7 +2969,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L521",
+      "source_location": "L571",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_send",
@@ -2681,7 +2981,43 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L523",
+      "source_location": "L575",
+      "weight": 1.0,
+      "_src": "src_main_run",
+      "_tgt": "src_main_await_image",
+      "source": "src_main_run",
+      "target": "src_main_await_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L576",
+      "weight": 1.0,
+      "_src": "src_main_run",
+      "_tgt": "src_main_resolve_out_path",
+      "source": "src_main_run",
+      "target": "src_main_resolve_out_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L577",
+      "weight": 1.0,
+      "_src": "src_main_run",
+      "_tgt": "src_main_download_image",
+      "source": "src_main_run",
+      "target": "src_main_download_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L587",
       "weight": 1.0,
       "_src": "src_main_run",
       "_tgt": "src_main_await_response",
@@ -2693,7 +3029,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L860",
+      "source_location": "L1039",
       "weight": 1.0,
       "_src": "src_main_main",
       "_tgt": "src_main_run",
@@ -2705,7 +3041,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L570",
+      "source_location": "L634",
       "weight": 1.0,
       "_src": "src_main_click_marked",
       "_tgt": "src_main_synth_click_marked",
@@ -2717,7 +3053,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L572",
+      "source_location": "L636",
       "weight": 1.0,
       "_src": "src_main_click_marked",
       "_tgt": "src_main_unmark",
@@ -2729,7 +3065,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L616",
+      "source_location": "L680",
       "weight": 1.0,
       "_src": "src_main_open_picker",
       "_tgt": "src_main_click_marked",
@@ -2741,7 +3077,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L691",
+      "source_location": "L755",
       "weight": 1.0,
       "_src": "src_main_list_models",
       "_tgt": "src_main_click_marked",
@@ -2753,7 +3089,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L722",
+      "source_location": "L786",
       "weight": 1.0,
       "_src": "src_main_switch_model",
       "_tgt": "src_main_click_marked",
@@ -2765,7 +3101,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L622",
+      "source_location": "L686",
       "weight": 1.0,
       "_src": "src_main_open_picker",
       "_tgt": "src_main_synth_click_marked",
@@ -2777,7 +3113,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L623",
+      "source_location": "L687",
       "weight": 1.0,
       "_src": "src_main_open_picker",
       "_tgt": "src_main_unmark",
@@ -2789,7 +3125,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L620",
+      "source_location": "L684",
       "weight": 1.0,
       "_src": "src_main_open_picker",
       "_tgt": "src_main_options_count",
@@ -2801,7 +3137,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L615",
+      "source_location": "L679",
       "weight": 1.0,
       "_src": "src_main_open_picker",
       "_tgt": "src_main_mark_selector",
@@ -2813,7 +3149,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L690",
+      "source_location": "L754",
       "weight": 1.0,
       "_src": "src_main_list_models",
       "_tgt": "src_main_mark_text",
@@ -2825,7 +3161,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L735",
+      "source_location": "L799",
       "weight": 1.0,
       "_src": "src_main_switch_model",
       "_tgt": "src_main_mark_text",
@@ -2837,7 +3173,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L612",
+      "source_location": "L676",
       "weight": 1.0,
       "_src": "src_main_open_picker",
       "_tgt": "src_main_wait_until",
@@ -2849,7 +3185,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L686",
+      "source_location": "L750",
       "weight": 1.0,
       "_src": "src_main_list_models",
       "_tgt": "src_main_open_picker",
@@ -2861,7 +3197,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L729",
+      "source_location": "L793",
       "weight": 1.0,
       "_src": "src_main_switch_model",
       "_tgt": "src_main_open_picker",
@@ -2873,12 +3209,24 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L700",
+      "source_location": "L764",
       "weight": 1.0,
       "_src": "src_main_list_models",
       "_tgt": "src_main_close_picker",
       "source": "src_main_close_picker",
       "target": "src_main_list_models",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L815",
+      "weight": 1.0,
+      "_src": "src_main_switch_model",
+      "_tgt": "src_main_close_picker",
+      "source": "src_main_close_picker",
+      "target": "src_main_switch_model",
       "confidence_score": 1.0
     },
     {
@@ -2887,18 +3235,6 @@
       "source_file": "src/main.rs",
       "source_location": "L751",
       "weight": 1.0,
-      "_src": "src_main_switch_model",
-      "_tgt": "src_main_close_picker",
-      "source": "src_main_close_picker",
-      "target": "src_main_switch_model",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main.rs",
-      "source_location": "L687",
-      "weight": 1.0,
       "_src": "src_main_list_models",
       "_tgt": "src_main_read_options",
       "source": "src_main_read_options",
@@ -2909,7 +3245,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L730",
+      "source_location": "L794",
       "weight": 1.0,
       "_src": "src_main_switch_model",
       "_tgt": "src_main_read_options",
@@ -2921,7 +3257,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L732",
+      "source_location": "L796",
       "weight": 1.0,
       "_src": "src_main_switch_model",
       "_tgt": "src_main_mark_option",
@@ -2933,12 +3269,48 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/main.rs",
-      "source_location": "L810",
+      "source_location": "L874",
       "weight": 1.0,
       "_src": "src_main_await_response",
       "_tgt": "src_main_as_text",
       "source": "src_main_await_response",
       "target": "src_main_as_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L901",
+      "weight": 1.0,
+      "_src": "src_main_await_image",
+      "_tgt": "src_main_as_text",
+      "source": "src_main_as_text",
+      "target": "src_main_await_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L958",
+      "weight": 1.0,
+      "_src": "src_main_download_image",
+      "_tgt": "src_main_percent_encode",
+      "source": "src_main_percent_encode",
+      "target": "src_main_download_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L952",
+      "weight": 1.0,
+      "_src": "src_main_download_image",
+      "_tgt": "src_main_base64_decode",
+      "source": "src_main_download_image",
+      "target": "src_main_base64_decode",
       "confidence_score": 1.0
     },
     {
@@ -3104,8 +3476,8 @@
       "source_file": "README.md",
       "source_location": "L165-166",
       "weight": 1.0,
-      "_src": "readme_mcp_server",
-      "_tgt": "readme_gptbrowser_cli",
+      "_src": "readme_gptbrowser_cli",
+      "_tgt": "readme_mcp_server",
       "source": "readme_gptbrowser_cli",
       "target": "readme_mcp_server"
     },
@@ -3128,8 +3500,8 @@
       "source_file": "BENCHMARKS.md",
       "source_location": "L1-16",
       "weight": 1.0,
-      "_src": "benchmarks_token_benchmark",
-      "_tgt": "readme_gptbrowser_cli",
+      "_src": "readme_gptbrowser_cli",
+      "_tgt": "benchmarks_token_benchmark",
       "source": "readme_gptbrowser_cli",
       "target": "benchmarks_token_benchmark"
     },
@@ -3152,8 +3524,8 @@
       "source_file": "mcp/README.md",
       "source_location": "L1-6",
       "weight": 1.0,
-      "_src": "mcp_readme_gptbrowser_mcp_server",
-      "_tgt": "readme_gptbrowser_cli",
+      "_src": "readme_gptbrowser_cli",
+      "_tgt": "mcp_readme_gptbrowser_mcp_server",
       "source": "readme_gptbrowser_cli",
       "target": "mcp_readme_gptbrowser_mcp_server"
     },
@@ -3164,8 +3536,8 @@
       "source_file": "docs/USAGE.md",
       "source_location": "L30",
       "weight": 1.0,
-      "_src": "usage_command_contract",
-      "_tgt": "readme_gptbrowser_cli",
+      "_src": "readme_gptbrowser_cli",
+      "_tgt": "usage_command_contract",
       "source": "readme_gptbrowser_cli",
       "target": "usage_command_contract"
     },
@@ -3176,8 +3548,8 @@
       "source_file": "docs/USAGE.md",
       "source_location": "L58-68",
       "weight": 1.0,
-      "_src": "usage_subagent_api_pattern",
-      "_tgt": "readme_gptbrowser_cli",
+      "_src": "readme_gptbrowser_cli",
+      "_tgt": "usage_subagent_api_pattern",
       "source": "readme_gptbrowser_cli",
       "target": "usage_subagent_api_pattern"
     },
@@ -3188,8 +3560,8 @@
       "source_file": "docs/USAGE.md",
       "source_location": "L77-90",
       "weight": 1.0,
-      "_src": "usage_codex_other_shells_section",
-      "_tgt": "readme_gptbrowser_cli",
+      "_src": "readme_gptbrowser_cli",
+      "_tgt": "usage_codex_other_shells_section",
       "source": "readme_gptbrowser_cli",
       "target": "usage_codex_other_shells_section"
     },
@@ -3200,8 +3572,8 @@
       "source_file": "claude/commands/gptbrowser.md",
       "source_location": "L7-19",
       "weight": 1.0,
-      "_src": "command_gptbrowser_slash_file",
-      "_tgt": "readme_gptbrowser_cli",
+      "_src": "readme_gptbrowser_cli",
+      "_tgt": "command_gptbrowser_slash_file",
       "source": "readme_gptbrowser_cli",
       "target": "command_gptbrowser_slash_file"
     },
@@ -3212,8 +3584,8 @@
       "source_file": "README.md",
       "source_location": "L127-130",
       "weight": 1.0,
-      "_src": "readme_pinchtab_http_client",
-      "_tgt": "readme_pinchtab",
+      "_src": "readme_pinchtab",
+      "_tgt": "readme_pinchtab_http_client",
       "source": "readme_pinchtab",
       "target": "readme_pinchtab_http_client"
     },
@@ -3224,8 +3596,8 @@
       "source_file": "BENCHMARKS.md",
       "source_location": "L5-13",
       "weight": 1.0,
-      "_src": "benchmarks_token_benchmark",
-      "_tgt": "readme_pinchtab",
+      "_src": "readme_pinchtab",
+      "_tgt": "benchmarks_token_benchmark",
       "source": "readme_pinchtab",
       "target": "benchmarks_token_benchmark"
     },
@@ -3236,8 +3608,8 @@
       "source_file": "mcp/README.md",
       "source_location": "L1-6",
       "weight": 1.0,
-      "_src": "mcp_readme_gptbrowser_mcp_server",
-      "_tgt": "readme_pinchtab",
+      "_src": "readme_pinchtab",
+      "_tgt": "mcp_readme_gptbrowser_mcp_server",
       "source": "readme_pinchtab",
       "target": "mcp_readme_gptbrowser_mcp_server"
     },
@@ -3248,8 +3620,8 @@
       "source_file": "claude/commands/gptbrowser.md",
       "source_location": "L22",
       "weight": 1.0,
-      "_src": "command_gptbrowser_slash_file",
-      "_tgt": "readme_pinchtab",
+      "_src": "readme_pinchtab",
+      "_tgt": "command_gptbrowser_slash_file",
       "source": "readme_pinchtab",
       "target": "command_gptbrowser_slash_file"
     },
@@ -3260,8 +3632,8 @@
       "source_file": "README.md",
       "source_location": "L139-140",
       "weight": 1.0,
-      "_src": "readme_prosemirror_injection",
-      "_tgt": "readme_chatgpt_adapter",
+      "_src": "readme_chatgpt_adapter",
+      "_tgt": "readme_prosemirror_injection",
       "source": "readme_chatgpt_adapter",
       "target": "readme_prosemirror_injection"
     },
@@ -3272,8 +3644,8 @@
       "source_file": "README.md",
       "source_location": "L139-140",
       "weight": 1.0,
-      "_src": "readme_prosemirror_injection",
-      "_tgt": "readme_gemini_adapter",
+      "_src": "readme_gemini_adapter",
+      "_tgt": "readme_prosemirror_injection",
       "source": "readme_gemini_adapter",
       "target": "readme_prosemirror_injection"
     },
@@ -3284,8 +3656,8 @@
       "source_file": "README.md",
       "source_location": "L141-145",
       "weight": 1.0,
-      "_src": "readme_lexical_injection",
-      "_tgt": "readme_kimi_adapter",
+      "_src": "readme_kimi_adapter",
+      "_tgt": "readme_lexical_injection",
       "source": "readme_kimi_adapter",
       "target": "readme_lexical_injection"
     },
@@ -3296,8 +3668,8 @@
       "source_file": "README.md",
       "source_location": "L146-148",
       "weight": 1.0,
-      "_src": "readme_native_textarea_injection",
-      "_tgt": "readme_deepseek_adapter",
+      "_src": "readme_deepseek_adapter",
+      "_tgt": "readme_native_textarea_injection",
       "source": "readme_deepseek_adapter",
       "target": "readme_native_textarea_injection"
     },
@@ -3308,8 +3680,8 @@
       "source_file": "BENCHMARKS.md",
       "source_location": "L65-66",
       "weight": 1.0,
-      "_src": "benchmarks_marginal_cost_analysis",
-      "_tgt": "readme_deepseek_adapter",
+      "_src": "readme_deepseek_adapter",
+      "_tgt": "benchmarks_marginal_cost_analysis",
       "source": "readme_deepseek_adapter",
       "target": "benchmarks_marginal_cost_analysis"
     },
@@ -3320,8 +3692,8 @@
       "source_file": "README.md",
       "source_location": "L139-140",
       "weight": 1.0,
-      "_src": "readme_prosemirror_injection",
-      "_tgt": "readme_claude_adapter",
+      "_src": "readme_claude_adapter",
+      "_tgt": "readme_prosemirror_injection",
       "source": "readme_claude_adapter",
       "target": "readme_prosemirror_injection"
     },
@@ -3332,8 +3704,8 @@
       "source_file": "docs/USAGE.md",
       "source_location": "L41-42",
       "weight": 1.0,
-      "_src": "usage_known_gap_site_list",
-      "_tgt": "readme_claude_adapter",
+      "_src": "readme_claude_adapter",
+      "_tgt": "usage_known_gap_site_list",
       "source": "readme_claude_adapter",
       "target": "usage_known_gap_site_list"
     },
@@ -3344,8 +3716,8 @@
       "source_file": "README.md",
       "source_location": "L141-145",
       "weight": 1.0,
-      "_src": "readme_lexical_injection",
-      "_tgt": "readme_perplexity_adapter",
+      "_src": "readme_perplexity_adapter",
+      "_tgt": "readme_lexical_injection",
       "source": "readme_perplexity_adapter",
       "target": "readme_lexical_injection"
     },
@@ -3356,8 +3728,8 @@
       "source_file": "docs/USAGE.md",
       "source_location": "L41-42",
       "weight": 1.0,
-      "_src": "usage_known_gap_site_list",
-      "_tgt": "readme_perplexity_adapter",
+      "_src": "readme_perplexity_adapter",
+      "_tgt": "usage_known_gap_site_list",
       "source": "readme_perplexity_adapter",
       "target": "usage_known_gap_site_list"
     },
@@ -3368,8 +3740,8 @@
       "source_file": "README.md",
       "source_location": "L146-148",
       "weight": 1.0,
-      "_src": "readme_native_textarea_injection",
-      "_tgt": "readme_zai_adapter",
+      "_src": "readme_zai_adapter",
+      "_tgt": "readme_native_textarea_injection",
       "source": "readme_zai_adapter",
       "target": "readme_native_textarea_injection"
     },
@@ -3380,8 +3752,8 @@
       "source_file": "docs/USAGE.md",
       "source_location": "L41-42",
       "weight": 1.0,
-      "_src": "usage_known_gap_site_list",
-      "_tgt": "readme_zai_adapter",
+      "_src": "readme_zai_adapter",
+      "_tgt": "usage_known_gap_site_list",
       "source": "readme_zai_adapter",
       "target": "usage_known_gap_site_list"
     },
@@ -3392,8 +3764,8 @@
       "source_file": "README.md",
       "source_location": "L146-148",
       "weight": 1.0,
-      "_src": "readme_native_textarea_injection",
-      "_tgt": "readme_copilot_adapter",
+      "_src": "readme_copilot_adapter",
+      "_tgt": "readme_native_textarea_injection",
       "source": "readme_copilot_adapter",
       "target": "readme_native_textarea_injection"
     },
@@ -3404,8 +3776,8 @@
       "source_file": "docs/USAGE.md",
       "source_location": "L42-43",
       "weight": 1.0,
-      "_src": "usage_known_gap_site_list",
-      "_tgt": "readme_copilot_adapter",
+      "_src": "readme_copilot_adapter",
+      "_tgt": "usage_known_gap_site_list",
       "source": "readme_copilot_adapter",
       "target": "usage_known_gap_site_list"
     },
@@ -3416,8 +3788,8 @@
       "source_file": "claude/commands/gptbrowser.md",
       "source_location": "L13",
       "weight": 1.0,
-      "_src": "command_gptbrowser_slash_file",
-      "_tgt": "readme_copilot_adapter",
+      "_src": "readme_copilot_adapter",
+      "_tgt": "command_gptbrowser_slash_file",
       "source": "readme_copilot_adapter",
       "target": "command_gptbrowser_slash_file"
     },
@@ -3428,8 +3800,8 @@
       "source_file": "README.md",
       "source_location": "L146-148",
       "weight": 1.0,
-      "_src": "readme_native_textarea_injection",
-      "_tgt": "readme_grok_adapter",
+      "_src": "readme_grok_adapter",
+      "_tgt": "readme_native_textarea_injection",
       "source": "readme_grok_adapter",
       "target": "readme_native_textarea_injection"
     },
@@ -3440,8 +3812,8 @@
       "source_file": "docs/USAGE.md",
       "source_location": "L42-43",
       "weight": 1.0,
-      "_src": "usage_known_gap_site_list",
-      "_tgt": "readme_grok_adapter",
+      "_src": "readme_grok_adapter",
+      "_tgt": "usage_known_gap_site_list",
       "source": "readme_grok_adapter",
       "target": "usage_known_gap_site_list"
     },
@@ -3452,8 +3824,8 @@
       "source_file": "claude/commands/gptbrowser.md",
       "source_location": "L13",
       "weight": 1.0,
-      "_src": "command_gptbrowser_slash_file",
-      "_tgt": "readme_grok_adapter",
+      "_src": "readme_grok_adapter",
+      "_tgt": "command_gptbrowser_slash_file",
       "source": "readme_grok_adapter",
       "target": "command_gptbrowser_slash_file"
     },
@@ -3464,8 +3836,8 @@
       "source_file": "docs/USAGE.md",
       "source_location": "L43-44",
       "weight": 1.0,
-      "_src": "usage_known_gap_site_list",
-      "_tgt": "readme_site_detect",
+      "_src": "readme_site_detect",
+      "_tgt": "usage_known_gap_site_list",
       "source": "readme_site_detect",
       "target": "usage_known_gap_site_list"
     },
@@ -3500,8 +3872,8 @@
       "source_file": "README.md",
       "source_location": "L198-201",
       "weight": 1.0,
-      "_src": "readme_troubleshooting",
-      "_tgt": "readme_model_switching",
+      "_src": "readme_model_switching",
+      "_tgt": "readme_troubleshooting",
       "source": "readme_model_switching",
       "target": "readme_troubleshooting"
     },
@@ -3512,8 +3884,8 @@
       "source_file": "mcp/README.md",
       "source_location": "L39",
       "weight": 1.0,
-      "_src": "mcp_readme_ask_model_tool",
-      "_tgt": "readme_model_switching",
+      "_src": "readme_model_switching",
+      "_tgt": "mcp_readme_ask_model_tool",
       "source": "readme_model_switching",
       "target": "mcp_readme_ask_model_tool"
     },
@@ -3524,8 +3896,8 @@
       "source_file": "mcp/README.md",
       "source_location": "L44",
       "weight": 1.0,
-      "_src": "mcp_readme_list_models_tool",
-      "_tgt": "readme_list_models_flag",
+      "_src": "readme_list_models_flag",
+      "_tgt": "mcp_readme_list_models_tool",
       "source": "readme_list_models_flag",
       "target": "mcp_readme_list_models_tool"
     },
@@ -3536,8 +3908,8 @@
       "source_file": "claude/commands/gptbrowser.md",
       "source_location": "L23",
       "weight": 1.0,
-      "_src": "command_gptbrowser_slash_file",
-      "_tgt": "readme_model_flag",
+      "_src": "readme_model_flag",
+      "_tgt": "command_gptbrowser_slash_file",
       "source": "readme_model_flag",
       "target": "command_gptbrowser_slash_file"
     },
@@ -3584,8 +3956,8 @@
       "source_file": "README.md",
       "source_location": "L170-173",
       "weight": 1.0,
-      "_src": "readme_troubleshooting",
-      "_tgt": "readme_composer_wait",
+      "_src": "readme_composer_wait",
+      "_tgt": "readme_troubleshooting",
       "source": "readme_composer_wait",
       "target": "readme_troubleshooting"
     },
@@ -3644,8 +4016,8 @@
       "source_file": "README.md",
       "source_location": "L180-184",
       "weight": 1.0,
-      "_src": "readme_troubleshooting",
-      "_tgt": "readme_prompt_injection",
+      "_src": "readme_prompt_injection",
+      "_tgt": "readme_troubleshooting",
       "source": "readme_prompt_injection",
       "target": "readme_troubleshooting"
     },
@@ -3680,8 +4052,8 @@
       "source_file": "BENCHMARKS.md",
       "source_location": "L60-66",
       "weight": 0.8,
-      "_src": "benchmarks_marginal_cost_analysis",
-      "_tgt": "readme_tab_foreground_trick",
+      "_src": "readme_tab_foreground_trick",
+      "_tgt": "benchmarks_marginal_cost_analysis",
       "source": "readme_tab_foreground_trick",
       "target": "benchmarks_marginal_cost_analysis"
     },
@@ -3704,8 +4076,8 @@
       "source_file": "README.md",
       "source_location": "L186-196",
       "weight": 1.0,
-      "_src": "readme_troubleshooting",
-      "_tgt": "readme_completion_detection",
+      "_src": "readme_completion_detection",
+      "_tgt": "readme_troubleshooting",
       "source": "readme_completion_detection",
       "target": "readme_troubleshooting"
     },
@@ -3740,8 +4112,8 @@
       "source_file": "docs/USAGE.md",
       "source_location": "L70-73",
       "weight": 1.0,
-      "_src": "usage_subagent_api_pattern",
-      "_tgt": "benchmarks_token_benchmark",
+      "_src": "benchmarks_token_benchmark",
+      "_tgt": "usage_subagent_api_pattern",
       "source": "benchmarks_token_benchmark",
       "target": "usage_subagent_api_pattern"
     },
@@ -3884,8 +4256,8 @@
       "source_file": "claude/commands/gptbrowser.md",
       "source_location": "L11-13",
       "weight": 0.85,
-      "_src": "command_gptbrowser_slash_file",
-      "_tgt": "usage_known_gap_site_list",
+      "_src": "usage_known_gap_site_list",
+      "_tgt": "command_gptbrowser_slash_file",
       "source": "usage_known_gap_site_list",
       "target": "command_gptbrowser_slash_file"
     },
@@ -3908,8 +4280,8 @@
       "source_file": "claude/commands/gptbrowser.md",
       "source_location": "L24",
       "weight": 1.0,
-      "_src": "command_gptbrowser_slash_file",
-      "_tgt": "usage_json_flag",
+      "_src": "usage_json_flag",
+      "_tgt": "command_gptbrowser_slash_file",
       "source": "usage_json_flag",
       "target": "command_gptbrowser_slash_file"
     },
