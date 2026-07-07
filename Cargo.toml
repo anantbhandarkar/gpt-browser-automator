@@ -1,0 +1,19 @@
+[package]
+name = "gptbrowser"
+version = "0.1.0"
+edition = "2021"
+description = "Send a prompt to a logged-in chatbot web UI (ChatGPT/Gemini/Kimi/DeepSeek) via PinchTab and return the clean text response. Feels like an API."
+
+[[bin]]
+name = "gptbrowser"
+path = "src/main.rs"
+
+[dependencies]
+# http-only client (no TLS needed — we only talk to the local PinchTab daemon)
+ureq = { version = "2", default-features = false }
+serde_json = "1"
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
